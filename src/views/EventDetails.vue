@@ -3,7 +3,7 @@
     <h1>{{ event.title }}</h1>
     <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
     <p>{{ event.description }}</p>
-    <div class="image_row">
+    <div class="image_row" v-if="haveImages">
         <figure>
             <img :src="getImgUrl(images[0])" id="pic1">
             <figcaption id="caption1">{{ captions[0] }}</figcaption>
@@ -24,24 +24,37 @@ export default {
     props: ["id", "images", "captions"],
     data() {
         return {
-            event: null,
-            myimage1: "../asseets/images/blood drinkers_1.jpg"
+            event: null
+            // myimage1: "../asseets/images/blood drinkers_1.jpg"
         }
     },
     computed: {
-        img1() {
-            // return "../assets/images/" + this.images[0];
-            return "../assets/images/" + this.images[0];
-        },
-        img2() {
-            // return "../assets/images/" + this.images[1];
-            return "../assets/images/" + this.images[1];
+        // img1() {
+        //     // return "../assets/images/" + this.images[0];
+        //     return "../assets/images/" + this.images[0];
+        // },
+        // img2() {
+        //     // return "../assets/images/" + this.images[1];
+        //     return "../assets/images/" + this.images[1];
+        // },
+
+        // haveImages() {
+        //   // console.log("images:",this.images.length);
+        //   let havesome = (this.images.length > 0) ? true : false;
+        //   return havesome;
+        // }
+        haveImages: function() {
+          let havesome = (this.images[0].length > 0) ? true : false;
+          return havesome;
+          // let t = typeof this.images;
+          // console.log("images:",t);
+          // return false;
         }
     },
     methods: {
         getImgUrl(path) {
-            var images = require.context('../assets/images/')
-            return images('./' + path)
+            var oneimage = require.context('../assets/images/')
+            return oneimage('./' + path)
         }
     },
     created() {
