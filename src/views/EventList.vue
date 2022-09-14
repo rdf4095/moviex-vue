@@ -31,15 +31,19 @@ export default {
 //        json-server moviex-vue01/src/assets/db.json
 
   created() {
-    console.log("getting events");
+    console.log("calling getEvents...");
     EventService.getEvents()
     .then(response => {
-      console.log('events', response.data);
+      console.log("...response.data:",response.data);
       this.events = response.data;
+      // return response.data;
     })
     .catch(error => {
       console.log(error);
     })
+    // console.log("in List, typeof .data:",typeof this.events);
+    // console.log('events', this.events);
+
   }
 
 };

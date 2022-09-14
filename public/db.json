@@ -1,0 +1,31 @@
+{
+    "events": [
+        {
+            "id": 111,
+            "category": "movies",
+            "title": "Shadow etc",
+            "description": "First movie in the list.",
+            "location": "Atlanta",
+            "date": "September 8, 2022",
+            "time": "11:00",
+            "petsAllowed": false,
+            "organizer": "The Shadow",
+            "images": ["blood drinkers_1.jpg", "shadow strikes_1.jpg"],
+            "captions": ["The vampire's assistant hovers nearby.",
+                        "Waiting for the shadow to strike."]
+        },
+        {
+            "id": 222,
+            "category": "movies",
+            "title": "Forest of Death",
+            "description": "Second movie in the list.",
+            "location": "Atlanta",
+            "date": "September 11, 2022",
+            "time": "11:00",
+            "petsAllowed": false,
+            "organizer": "The Forest",
+            "images": ["forest of death_1.png", "forest of death_2.png"],
+            "captions": ["First pic.", "Second pic."]
+        }
+    ]
+}

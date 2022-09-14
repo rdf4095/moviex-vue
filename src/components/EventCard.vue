@@ -1,5 +1,11 @@
 <template>
-  <router-link class="event-link" :to="{ name: 'EventDetails', params: { id: event.id, images: event.images, captions: event.captions } }">
+  <router-link class="event-link"
+               :to="{ name: 'EventDetails', 
+                      params: { id: event.id, 
+                                images: event.images,
+                                captions: event.captions 
+                              }
+                     }">
     <div class="event-card">
       <span>@ {{ event.time }} on {{ event.date }}</span>
       <h4>{{ event.title }}</h4>
