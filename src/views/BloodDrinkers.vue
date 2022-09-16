@@ -1,6 +1,10 @@
 <template>
   <article>
-    Text at the beginning of the blood-drinkers article.
+    Text at the beginning of the blood-drinkers article.  Concerning FRANCIS GOES TO WEST POINT
+    Dorothy Reid supplied additional dialogue.  Buried in the cast list are: Leonard Nimoy
+     as football player #52, George Barrows, whose sub-specialty was playing gorillas,
+      tv mainstay Paul Burke ("Naked City") in one of his earliest roles, and William Newell as a drunk.  In a long career of small character roles, Newell  played either a drunk or a bartender numerous times.  
+      Just had the kind of face that seemed to belong in a bar, I suppose.
     <div class="image_row">
         <figure>
             <img src="../assets/images/blood drinkers_1.jpg" id="pic1">
@@ -28,6 +32,9 @@ article {
   --single-width: 320px;
   --double-width: calc((var(--single-width) * 2) + 4);
   --single-height: 240px;
+
+  margin: 1em 2em;
+  border: 1px solid blue;
 }
 
 .image_row {

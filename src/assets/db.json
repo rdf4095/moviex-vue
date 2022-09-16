@@ -5,11 +5,9 @@
             "category": "movies",
             "title": "Shadow etc",
             "description": "First movie in the list.",
-            "location": "Atlanta",
-            "date": "September 8, 2022",
-            "time": "11:00",
-            "petsAllowed": false,
-            "organizer": "The Shadow",
+            "date": "1974",
+            "origin": "Philippines",
+            "director": "Gerardo de Leon",
             "images": ["blood drinkers_1.jpg", "shadow strikes_1.jpg"],
             "captions": ["The vampire's assistant hovers nearby.",
                         "Waiting for the shadow to strike."]
@@ -19,13 +17,22 @@
             "category": "movies",
             "title": "Forest of Death",
             "description": "Second movie in the list.",
-            "location": "Atlanta",
-            "date": "September 11, 2022",
-            "time": "11:00",
-            "petsAllowed": false,
-            "organizer": "The Forest",
+            "date": "2002",
+            "origin": "Japan",
+            "director": "Sion Sono",
             "images": ["forest of death_1.png", "forest of death_2.png"],
             "captions": ["First pic.", "Second pic."]
+        },
+        {
+            "id": 333,
+            "category": "movies",
+            "title": "Lady From Shanghai",
+            "description": "Third movie in the list.",
+            "date": "1948",
+            "origin": "USA",
+            "director": "Orson Welles",
+            "images": [""],
+            "captions": [""]
         }
     ]
 }

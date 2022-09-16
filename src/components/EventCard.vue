@@ -7,8 +7,8 @@
                               }
                      }">
     <div class="event-card">
-      <span>@ {{ event.time }} on {{ event.date }}</span>
       <h4>{{ event.title }}</h4>
+      <span>{{ event.date }},  {{ event.origin }}</span>
     </div>
   </router-link>
 </template>
@@ -27,12 +27,29 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+h4 {
+  display: inline;
+  float: left;
+  margin: 0.25em 0;
+  padding: 0 0.25em;
+}
+span {
+  /* margin-left: 0.5em; */
+  float: right;
+  margin: 0.25em 0 0 0.5em;
+  padding: 0.25em;
+}
 .event-card {
-  padding: 20px;
-  width: 250px;
+  /* padding: 20px;
+  width: 250px; */
+  /* padding: 1em; */
+  width: 300px;
+  height: 2em;
   cursor: pointer;
   border: 1px solid #39495c;
-  margin-bottom: 18px;
+  /* margin-bottom: 18px; */
+  /* margin-bottom: 0.75em; */
+  padding: 0 0.25em;
 }
 
 .event-card:hover {

@@ -1,7 +1,6 @@
 <template>
-  <div v-if="haveObjects">
+  <div v-if="event">
     <h1>{{ event.title }}</h1>
-    <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
     <p>{{ event.description }}</p>
     <div class="image_row" v-if="haveImages">
         <figure>
@@ -24,23 +23,19 @@ export default {
     props: ["id", "images", "captions"],
     data() {
         return {
-            // eventList: null,
             event: null
         }
     },
     computed: {
         haveImages: function() {
-          let havesome = (this.images[0].length > 0) ? true : false;
-          return havesome;
-          // let t = typeof this.images;
-          // console.log("images:",t);
-          // return false;
-        },
-        haveObjects: function() {
-          // let haveobjs = (this.event != null) ? true : false;
-          let haveobjs = (this.images[0].length > 0) ? true : false;
-          return haveobjs;
+          let haveimg = (this.images[0].length > 0) ? true : false;
+          return haveimg;
         }
+        // haveObjects: function() {
+        //   // let haveobjs = (this.event != null) ? true : false;
+        //   let haveobjs = (this.images[0].length > 0) ? true : false;
+        //   return haveobjs;
+        // }
     },
     methods: {
         getImgUrl(path) {
@@ -49,19 +44,11 @@ export default {
         }
     },
     created() {
-        // fetch event by id and set local data item to it
-        // console.log("calling getEvent...");
-        // var vm = this;
-
         EventService.getEvent(this.id)
         .then(response => {
-            // this.eventList = response.data;
             console.log("in Details, res", response);
             // console.log("in Details, res.data", response.data);
             // console.log("in Details, this.event", this.event);
-
-            // vm.eventList = response;
-            // vm.event = this.eventList.filter(e => e.id == this.id);
 
             // this.eventList = response;
             // this.event = this.eventList.filter(e => e.id == this.id);
@@ -72,10 +59,6 @@ export default {
         .catch(error => {
             console.log(error);
         })
-        // console.log(this.id);
-            // console.log("in Details after call, ev list", this.eventList);
-        // this.event = this.eventList[0];
-        // console.log("in Details, this.event", this.event);
     }
 }
 </script>

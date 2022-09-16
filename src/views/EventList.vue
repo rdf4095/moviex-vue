@@ -1,6 +1,6 @@
 <template>
   <div class="events">
-    <h1>Events for Good</h1>
+    <h1>Events for Movies</h1>
     <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
@@ -22,13 +22,10 @@ export default {
     }
   },
 
-// db.json is local, but I use json-server to serve it 
-//     (...the recommended github/my-json-server doesn't work.)
-// I installed json-server into the vue3 dir with npm
-// 
+// install json-server into the vue3 dir with npm
 // Serve the database by starting in the vue3 dir and 
 // typing into a console: 
-//        json-server moviex-vue01/src/assets/db.json
+//   json-server moviex-vue01/src/assets/db.json
 
   created() {
     console.log("calling getEvents...");
@@ -41,9 +38,6 @@ export default {
     .catch(error => {
       console.log(error);
     })
-    // console.log("in List, typeof .data:",typeof this.events);
-    // console.log('events', this.events);
-
   }
 
 };
