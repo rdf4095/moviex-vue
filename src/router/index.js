@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import EventList from "../views/EventList.vue";
+// import EventList from "../views/EventList.vue";
+import Landing from "../views/Landing.vue";
 import EventDetails from "../views/EventDetails.vue";
 import About from "../views/About.vue";
 import BloodDrinkers from "../views/BloodDrinkers.vue";
@@ -10,13 +11,28 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "EventList",
-    component: EventList
+    name: "Landing",
+    component: Landing,
+    // components: {
+    //   mainview: About,
+    //   linksview: EventList 
+    // }   
   },
   {
     path: "/events/:id",
     name: "EventDetails",
     props: true,
+    
+    // component: EventDetails
+
+    // components: {
+    //   mainview: EventDetails,
+    //   linksview: EventList
+    // }
+
+    // component: {
+    //   mainview: EventDetails
+    // }
     component: EventDetails
   },
   {
@@ -31,11 +47,19 @@ const routes = [
     // direct loading version
     //    -- for larger apps with many routes, use the above method
     component: About
+    // components: {
+    //   mainview: About,
+    //   linksview: EventList
+    // }
   },
   {
     path: "/BloodDrinkers",
     name: "BloodDrinkers",
     component: BloodDrinkers
+    // components: {
+    //   mainview: BloodDrinkers,
+    //   linksview: EventList
+    // }
   }
 ];
 

@@ -14,6 +14,7 @@ export default {
         return apiClient.get('/events')
     },
     getEvent(id) {
+        console.log("in getEvent, id:",id);
         return apiClient.get('/events/' + id)
     }
 }

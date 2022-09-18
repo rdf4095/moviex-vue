@@ -1,6 +1,6 @@
 <template>
   <div class="events">
-    <h1>Events for Movies</h1>
+    <h1>Events List</h1>
     <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
@@ -9,6 +9,7 @@
 // @ is an alias to /src
 import EventCard from "@/components/EventCard.vue";
 import EventService from '@/services/EventService.js';
+// import { watchEffect } from 'vue';
 
 export default {
   name: "EventList",
@@ -28,16 +29,21 @@ export default {
 //   json-server moviex-vue01/src/assets/db.json
 
   created() {
-    console.log("calling getEvents...");
-    EventService.getEvents()
-    .then(response => {
-      console.log("...response.data:",response.data);
-      this.events = response.data;
-      // return response.data;
-    })
-    .catch(error => {
-      console.log(error);
-    })
+    // console.log("calling getEvents...");
+
+// is watchEffect needed here??
+    // watchEffect(() => {
+    //   this.events = null;
+      EventService.getEvents()
+      .then(response => {
+        // console.log("...response.data:",response.data);
+        this.events = response.data;
+        // return response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    // })
   }
 
 };

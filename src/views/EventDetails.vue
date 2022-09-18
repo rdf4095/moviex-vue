@@ -19,6 +19,9 @@
 <script>
 import EventService from "../services/EventService.js";
 
+// is this needed? (as alternative to route push to make sure id is used??)
+import { watchEffect } from 'vue';
+
 export default {
     props: ["id", "images", "captions"],
     data() {
@@ -28,7 +31,8 @@ export default {
     },
     computed: {
         haveImages: function() {
-          let haveimg = (this.images[0].length > 0) ? true : false;
+          console.log("images:", this.images);
+          let haveimg = (this.images && this.images[0].length > 0) ? true : false;
           return haveimg;
         }
         // haveObjects: function() {
@@ -44,20 +48,22 @@ export default {
         }
     },
     created() {
-        EventService.getEvent(this.id)
-        .then(response => {
-            console.log("in Details, res", response);
-            // console.log("in Details, res.data", response.data);
-            // console.log("in Details, this.event", this.event);
+        // console.log("in Details/created, this.id:",this.id);
 
-            // this.eventList = response;
-            // this.event = this.eventList.filter(e => e.id == this.id);
-            this.event = response.data;
-            // console.log("in Details, eventList", this.eventList);
-            // console.log("in Details, this.ev", this.event);
-        })
-        .catch(error => {
-            console.log(error);
+        watchEffect(() => {
+          this.event = null;
+          EventService.getEvent(this.id)
+          .then(response => {
+              // console.log("in Details, res.data", response.data);
+              // console.log("in Details, this.event", this.event);
+
+              this.event = response.data;
+              // console.log("in Details, eventList", this.eventList);
+              // console.log("in Details, this.ev", this.event);
+          })
+          .catch(error => {
+              console.log(error);
+          })
         })
     }
 }
