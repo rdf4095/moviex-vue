@@ -3,8 +3,8 @@ import VueRouter from "vue-router";
 // import EventList from "../views/EventList.vue";
 import Landing from "../views/Landing.vue";
 import EventDetails from "../views/EventDetails.vue";
-import About from "../views/About.vue";
-import BloodDrinkers from "../views/BloodDrinkers.vue";
+// import About from "../views/About.vue";
+// import BloodDrinkers from "../views/BloodDrinkers.vue";
 
 Vue.use(VueRouter);
 
@@ -12,16 +12,17 @@ const routes = [
   {
     path: "/",
     name: "Landing",
-    component: Landing,
-    // components: {
-    //   mainview: About,
+    // component: Landing,
+
+    components: {
+      mainview: Landing
     //   linksview: EventList 
-    // }   
+    }   
   },
   {
     path: "/events/:id",
     name: "EventDetails",
-    props: true,
+    // props: true,
     
     // component: EventDetails
 
@@ -30,14 +31,19 @@ const routes = [
     //   linksview: EventList
     // }
 
-    // component: {
-    //   mainview: EventDetails
-    // }
-    component: EventDetails
-  },
-  {
-    path: "/about",
-    name: "About",
+    components: {
+      mainview: EventDetails
+    },
+    props: {
+      mainview: true
+    }
+
+    // component: EventDetails
+  }
+  // {
+  //   path: "/about",
+  //   name: "About",
+
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -46,21 +52,19 @@ const routes = [
 
     // direct loading version
     //    -- for larger apps with many routes, use the above method
-    component: About
+    
+    // component: About
+    
     // components: {
     //   mainview: About,
     //   linksview: EventList
     // }
-  },
-  {
-    path: "/BloodDrinkers",
-    name: "BloodDrinkers",
-    component: BloodDrinkers
-    // components: {
-    //   mainview: BloodDrinkers,
-    //   linksview: EventList
-    // }
-  }
+  // },
+  // {
+  //   path: "/BloodDrinkers",
+  //   name: "BloodDrinkers",
+  //   component: BloodDrinkers
+  // }
 ];
 
 const router = new VueRouter({

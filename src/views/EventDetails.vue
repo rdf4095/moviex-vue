@@ -48,7 +48,7 @@ export default {
         }
     },
     created() {
-        // console.log("in Details/created, this.id:",this.id);
+        console.log("in Details/created, this.id:",this.id);
 
         watchEffect(() => {
           this.event = null;

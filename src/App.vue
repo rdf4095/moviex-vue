@@ -6,7 +6,7 @@
       </div>
 
       <div class="main-content">
-        <router-view></router-view>
+        <router-view name='mainview'></router-view>
         <!-- <router-view></router-view> -->
       </div>
 
