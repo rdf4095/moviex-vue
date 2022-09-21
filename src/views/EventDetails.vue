@@ -2,6 +2,21 @@
   <div v-if="event">
     <h1>{{ event.title }}</h1>
     <p>{{ event.description }}</p>
+    <div v-if="haveImages">
+      <p>imgs: {{ numImages }}</p>
+      <p>image array: {{ coupledImages }}</p>
+      <p>caption array: {{ coupledCaptions }}</p>
+
+      <ShowImageRow :images="images" :captions="captions"></ShowImageRow>
+
+
+    </div>
+  </div>
+</template>
+
+<script>
+// there is an extra haveImages here...
+/*
     <div class="image_row" v-if="haveImages">
         <figure>
             <img :src="getImgUrl(images[0])" id="pic1">
@@ -13,45 +28,67 @@
             <figcaption id="caption2">{{ captions[1] }}</figcaption>
         </figure>
     </div>
-  </div>
-</template>
+*/
 
-<script>
 import EventService from "../services/EventService.js";
-
-// is this needed? (as alternative to route push to make sure id is used??)
 import { watchEffect } from 'vue';
+import ShowImageRow from "../components/ShowImageRow.vue";
 
 export default {
     props: ["id", "images", "captions"],
+    components: {
+      ShowImageRow
+    },
     data() {
         return {
             event: null
         }
     },
     computed: {
+        numImages: function() {
+          return this.images.length;
+        },
         haveImages: function() {
-          console.log("images:", this.images);
-          let haveimg = (this.images && this.images[0].length > 0) ? true : false;
-          return haveimg;
+          // console.log("images:", this.images);
+          // let haveimg = (this.images && this.numImages > 0) ? true : false;
+          // return haveimg;
+          return (this.images && this.numImages > 0) ? true : false
+        },
+
+      // coupled arrays not used in this version:
+        coupledImages: function() {
+          return this.coupleArrayItems(this.images);
+        },
+        coupledCaptions: function() {
+          return this.coupleArrayItems(this.captions);
         }
-        // haveObjects: function() {
-        //   // let haveobjs = (this.event != null) ? true : false;
-        //   let haveobjs = (this.images[0].length > 0) ? true : false;
-        //   return haveobjs;
-        // }
     },
     methods: {
-        getImgUrl(path) {
-            var oneimage = require.context('../assets/images/')
-            return oneimage('./' + path)
+      // moved to ShowImageRow.vue:
+        // getImgUrl(path) {
+        //     var oneimage = require.context('../assets/images/');
+        //
+        //     return oneimage('./' + path)
+        // },
+
+      // coupled arrays not used in this version:
+        coupleArrayItems(arr) {
+          let arrout = [];
+          let odd = arr % 2;
+
+          for (let n=0; n<arr.length-1; n+=2) {arrout.push([arr[n], arr[n+1]])}
+          if (odd) {
+            arrout.push([arr.slice(-1)]);
+          }
+
+          return arrout;
         }
     },
     created() {
         console.log("in Details/created, this.id:",this.id);
 
         watchEffect(() => {
-          this.event = null;
+          // this.event = null;
           EventService.getEvent(this.id)
           .then(response => {
               // console.log("in Details, res.data", response.data);

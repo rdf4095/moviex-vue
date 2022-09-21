@@ -7,13 +7,13 @@
 
       <div class="main-content">
         <router-view name='mainview'></router-view>
-        <!-- <router-view></router-view> -->
       </div>
 
       <div class="list-of-links">
-        <!-- <router-view></router-view> -->
         <event-list></event-list>
       </div>
+      <footer><router-view name='footerview'></router-view>
+      </footer>
     </section>
   </div>
 </template>
@@ -46,6 +46,7 @@ section {
     grid-gap: 0.5em;
     grid-template-areas: "header header"
                          "content links"
+                         "footer footer"
 }
 .masthead {
   grid-area: header;
@@ -55,12 +56,16 @@ section {
 .main-content {
   grid-area: content;
   background: lightblue;
+  min-height: 400px;
 }
 .list-of-links {
   grid-area: links;
   background: lightgreen;
 }
-
+footer {
+  grid-area: footer;
+  background: lightsalmon;
+}
 /* #nav {
   padding: 30px;
 }

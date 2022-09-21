@@ -20,8 +20,9 @@
             "date": "2002",
             "origin": "Japan",
             "director": "Sion Sono",
-            "images": ["forest of death_1.png", "forest of death_2.png"],
-            "captions": ["First pic.", "Second pic."]
+            "images": ["forest of death_1.png", "forest of death_2.png", 
+                       "forest of death_3.png", "forest of death_4.png"],
+            "captions": ["First pic.", "Second pic.", "Third pic.", "Fourth pic."]
         },
         {
             "id": 333,
@@ -31,8 +32,8 @@
             "date": "1948",
             "origin": "USA",
             "director": "Orson Welles",
-            "images": [""],
-            "captions": [""]
+            "images": [],
+            "captions": []
         }
     ]
 }

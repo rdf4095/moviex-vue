@@ -22,18 +22,9 @@ export default {
     }
   }
 }
-/*
-  <router-link class="event-link"
-               :to="{ name: 'EventDetails', 
-                      params: { id: event.id, 
-                                images: event.images,
-                                captions: event.captions 
-                              }
-                     }">
-*/
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- "scoped" attribute limits CSS to this component  -->
 <style scoped>
 h4 {
   display: inline;

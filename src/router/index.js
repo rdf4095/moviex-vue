@@ -3,8 +3,7 @@ import VueRouter from "vue-router";
 // import EventList from "../views/EventList.vue";
 import Landing from "../views/Landing.vue";
 import EventDetails from "../views/EventDetails.vue";
-// import About from "../views/About.vue";
-// import BloodDrinkers from "../views/BloodDrinkers.vue";
+import FooterDetails from "../views/FooterDetails.vue";
 
 Vue.use(VueRouter);
 
@@ -12,59 +11,32 @@ const routes = [
   {
     path: "/",
     name: "Landing",
-    // component: Landing,
 
     components: {
       mainview: Landing
-    //   linksview: EventList 
     }   
   },
   {
     path: "/events/:id",
     name: "EventDetails",
-    // props: true,
-    
-    // component: EventDetails
 
-    // components: {
-    //   mainview: EventDetails,
-    //   linksview: EventList
-    // }
-
-    components: {
-      mainview: EventDetails
-    },
-    props: {
-      mainview: true
-    }
-
-    // component: EventDetails
-  }
-  // {
-  //   path: "/about",
-  //   name: "About",
-
+    //    -- for larger apps with many routes, use the above method
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     // component: () =>
-    //   import(/* webpackChunkName: "about" */ "../views/About.vue")
+    //   import(/* webpackChunkName: "about" */ "../views/EventDetails.vue")
 
     // direct loading version
-    //    -- for larger apps with many routes, use the above method
-    
-    // component: About
-    
-    // components: {
-    //   mainview: About,
-    //   linksview: EventList
-    // }
-  // },
-  // {
-  //   path: "/BloodDrinkers",
-  //   name: "BloodDrinkers",
-  //   component: BloodDrinkers
-  // }
+    components: {
+      mainview: EventDetails,
+      footerview: FooterDetails
+    },
+    props: {
+      mainview: true,
+      footerview: true
+    }
+  }
 ];
 
 const router = new VueRouter({
