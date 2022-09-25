@@ -4,8 +4,6 @@
     <p>{{ event.description }}</p>
     <div v-if="haveImages">
       <p>imgs: {{ numImages }}</p>
-      <p>image array: {{ coupledImages }}</p>
-      <p>caption array: {{ coupledCaptions }}</p>
 
       <ShowImageRow :images="images" :captions="captions"></ShowImageRow>
 
@@ -49,40 +47,31 @@ export default {
           return this.images.length;
         },
         haveImages: function() {
-          // console.log("images:", this.images);
-          // let haveimg = (this.images && this.numImages > 0) ? true : false;
-          // return haveimg;
           return (this.images && this.numImages > 0) ? true : false
         },
 
       // coupled arrays not used in this version:
-        coupledImages: function() {
-          return this.coupleArrayItems(this.images);
-        },
-        coupledCaptions: function() {
-          return this.coupleArrayItems(this.captions);
-        }
+        // coupledImages: function() {
+        //   return this.coupleArrayItems(this.images);
+        // },
+        // coupledCaptions: function() {
+        //   return this.coupleArrayItems(this.captions);
+        // }
     },
     methods: {
-      // moved to ShowImageRow.vue:
-        // getImgUrl(path) {
-        //     var oneimage = require.context('../assets/images/');
-        //
-        //     return oneimage('./' + path)
-        // },
 
       // coupled arrays not used in this version:
-        coupleArrayItems(arr) {
-          let arrout = [];
-          let odd = arr % 2;
+        // coupleArrayItems(arr) {
+        //   let arrout = [];
+        //   let odd = arr % 2;
 
-          for (let n=0; n<arr.length-1; n+=2) {arrout.push([arr[n], arr[n+1]])}
-          if (odd) {
-            arrout.push([arr.slice(-1)]);
-          }
+        //   for (let n=0; n<arr.length-1; n+=2) {arrout.push([arr[n], arr[n+1]])}
+        //   if (odd) {
+        //     arrout.push([arr.slice(-1)]);
+        //   }
 
-          return arrout;
-        }
+        //   return arrout;
+        // }
     },
     created() {
         console.log("in Details/created, this.id:",this.id);
@@ -91,9 +80,6 @@ export default {
           // this.event = null;
           EventService.getEvent(this.id)
           .then(response => {
-              // console.log("in Details, res.data", response.data);
-              // console.log("in Details, this.event", this.event);
-
               this.event = response.data;
               // console.log("in Details, eventList", this.eventList);
               // console.log("in Details, this.ev", this.event);

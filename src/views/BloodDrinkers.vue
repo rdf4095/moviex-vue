@@ -1,27 +1,74 @@
 <template>
   <article>
+    <p>
+
     Text at the beginning of the blood-drinkers article.  Concerning FRANCIS GOES TO WEST POINT
     Dorothy Reid supplied additional dialogue.  Buried in the cast list are: Leonard Nimoy
      as football player #52, George Barrows, whose sub-specialty was playing gorillas,
       tv mainstay Paul Burke ("Naked City") in one of his earliest roles, and William Newell as a drunk.  In a long career of small character roles, Newell  played either a drunk or a bartender numerous times.  
       Just had the kind of face that seemed to belong in a bar, I suppose.
-    <div class="image_row">
-        <figure>
-            <img src="../assets/images/blood drinkers_1.jpg" id="pic1">
-            <figcaption id="caption1">The vampire's assistant hovers nearby.</figcaption>
-        </figure>
+    </p>
 
-        <figure>
-            <img src="../assets/images/shadow strikes_1.jpg" id="pic2">
-            <figcaption id="caption2">Waiting for the shadow to strike.</figcaption>
-        </figure>
-    </div>
+      <!-- <div v-if="haveImages">
+        <ShowImageRow :images="event.images" :captions="event.captions"></ShowImageRow> -->
+      <div>
+        <ShowImageRow :id="id"></ShowImageRow>
+      
+        <p>id: {{ id }}</p>
+      </div>
+
     Text after the image-row.
   </article>
 </template>
 
 <script>
+// import EventService from "../services/EventService.js";
+import ShowImageRow from "../components/ShowImageRow.vue";
+
 export default {
+    props: ["id"],
+
+    // data() {
+    //   return {
+    //     event: null
+    //   }
+    // },
+
+    components: {
+      ShowImageRow
+    },
+
+    // computed: {
+    //     haveImages: function() {
+    //       let havesome = false;
+
+    //       if (this.event && this.event.images) {
+    //         havesome = (this.event.images[0].length > 0) ? true : false;
+    //       }
+
+    //       return havesome;
+    //     }
+    // },
+
+
+    // methods: {
+    //     getImgUrl(path) {
+    //         console.log("in getImgUrl");
+    //         var oneimage = require.context('../assets/images/')
+    //         return oneimage('./' + path)
+    //     }
+    // },
+    // created() {
+    //     // fetch event by id and set local data item to it
+    //     EventService.getEvent(this.id)
+    //     .then(response => {
+    //         console.log("one event", response.data);
+    //         this.event = response.data;
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //     })
+    // }
 
 }
 </script>

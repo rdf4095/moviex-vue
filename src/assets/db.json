@@ -34,6 +34,18 @@
             "director": "Orson Welles",
             "images": [],
             "captions": []
+        },
+        {
+            "id": 444,
+            "category": "movies",
+            "title": "The Drinkers",
+            "description": "Fourth movie in the list.",
+            "date": "1973",
+            "origin": "Philippines",
+            "director": "Gerardo de Leon",
+            "images": ["blood drinkers_1.jpg", "shadow strikes_1.jpg"],
+            "captions": ["The vampire's assistant hovers nearby.",
+                        "Waiting for the shadow to strike."]
         }
     ]
 }
