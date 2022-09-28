@@ -35,8 +35,6 @@ export default {
   font-family: Avenir, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center;
-  color: #2c3e50; */
 }
 
 section {
@@ -51,7 +49,6 @@ section {
 .masthead {
   grid-area: header;
   background: lightyellow;
-  /* height: 100px; */
 }
 .main-content {
   grid-area: content;
@@ -66,20 +63,39 @@ footer {
   grid-area: footer;
   background: lightsalmon;
 }
-/* #nav {
-  padding: 30px;
+
+/* for all articles  */
+article {
+    /* image size  */
+  --single-width: 320px;
+  --double-width: calc((var(--single-width) * 2) + 4);
+  --single-height: 240px;
+
+  margin: 1em 2em;
+  border: 1px solid blue;
+}
+.image_row {
+  margin-bottom: 1.5em;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+figure {
+  width: var(--single-width);
+  height: auto;
+	display: inline-block;
+	margin: 1em;
+	border: 1px solid lightgrey;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+figcaption {
+  font-family: Times, serif;
+  font-size: .85em;
+  font-style: oblique;
+  text-align: left;
+  padding: 5px;
+  background-color: #fff;
 }
 
-h4 {
-  font-size: 20px;
-} */
 </style>

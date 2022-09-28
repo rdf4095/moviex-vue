@@ -1,22 +1,27 @@
 <template>
   <div class="events">
     <h1>Events List</h1>
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+      <router-link :to="{ name: 'ForestOfDeath' }">Forest of Death</router-link>
       <router-link :to="{ name: 'BloodDrinkers' }">Blood Drinkers</router-link>
-
+      <router-link :to="{ name: 'BeesInParadise' }">Bees in Paradise</router-link>
   </div>
 </template>
 
 <script>
+/* methods below expect a JSON database to be available via a server.
+   One way: 
+     - install json-server into the vue3 dir with npm
+     - serve the database by navigating to the project dir and 
+       typing into a console: 
+     - json-server dbpath
+       where:
+         dbpath is the relative path to the database file
+*/
 // @ is an alias to /src
-import EventCard from "@/components/EventCard.vue";
 import EventService from '@/services/EventService.js';
 
 export default {
   name: "EventList",
-  components: {
-    EventCard
-  },
 
   data() {
     return {
@@ -24,26 +29,15 @@ export default {
     }
   },
 
-// install json-server into the vue3 dir with npm
-// Serve the database by starting in the project dir and 
-// typing into a console: 
-//   json-server dbpath
-// where:
-//   dbpath is the relative path to the database file
-
   created() {
-    // console.log("calling getEvents...");
-
       EventService.getEvents()
       .then(response => {
-        // console.log("...response.data:",response.data);
         this.events = response.data;
       })
       .catch(error => {
         console.log(error);
       })
   }
-
 };
 
 </script>
@@ -52,6 +46,6 @@ export default {
 .events {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 }
 </style>

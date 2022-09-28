@@ -1,10 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import EventList from "../views/EventList.vue";
 import Landing from "../views/Landing.vue";
-import EventDetails from "../views/EventDetails.vue";
 import FooterDetails from "../views/FooterDetails.vue";
-// import BloodDrinkers from "../views/BloodDrinkers.vue";
 
 Vue.use(VueRouter);
 
@@ -17,40 +14,28 @@ const routes = [
       mainview: Landing
     }   
   },
-  {
-    path: "/events/:id",
-    name: "EventDetails",
-
-    //    -- for larger apps with many routes, use this method
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    // component: () =>
-    //   import(/* webpackChunkName: "about" */ "../views/About.vue")
-
-    // direct loading version
+  { 
+    path: '/ForestOfDeath', name: 'ForestOfDeath',
     components: {
-      mainview: EventDetails,
-      footerview: FooterDetails
+      mainview: () => import("../views/ForestOfDeath.vue"), footerview: FooterDetails
     },
-    props: {
-      mainview: true,
-      footerview: true
-    }
+    props: { mainview: { id: 222 }, footerview: { id: 222 } }
   },
   { 
-    path: '/BloodDrinkers',
-    name: 'BloodDrinkers',
+    path: '/BloodDrinkers', name: 'BloodDrinkers',
     components: {
-      // mainview: BloodDrinkers,
-      mainview: () => import("../views/BloodDrinkers.vue"),
-      footerview: FooterDetails
+      mainview: () => import("../views/BloodDrinkers.vue"), footerview: FooterDetails
     },
-    props: {
-      mainview: { id: 444 },
-      footerview: { id: 444 }
-    }
+    props: { mainview: { id: 444 }, footerview: { id: 444 } }
+  },
+  { 
+    path: '/BeesInParadise', name: 'BeesInParadise',
+    components: {
+      mainview: () => import("../views/BeesInParadise.vue"), footerview: FooterDetails
+    },
+    props: { mainview: { id: 333 }, footerview: { id: 333 } }
   }
+
 ];
 
 const router = new VueRouter({

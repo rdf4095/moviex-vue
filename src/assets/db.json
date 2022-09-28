@@ -1,22 +1,8 @@
 {
     "events": [
         {
-            "id": 111,
-            "category": "movies",
-            "title": "Shadow etc",
-            "description": "First movie in the list.",
-            "date": "1974",
-            "origin": "Philippines",
-            "director": "Gerardo de Leon",
-            "images": ["blood drinkers_1.jpg", "shadow strikes_1.jpg"],
-            "captions": ["The vampire's assistant hovers nearby.",
-                        "Waiting for the shadow to strike."]
-        },
-        {
             "id": 222,
-            "category": "movies",
             "title": "Forest of Death",
-            "description": "Second movie in the list.",
             "date": "2002",
             "origin": "Japan",
             "director": "Sion Sono",
@@ -26,26 +12,43 @@
         },
         {
             "id": 333,
-            "category": "movies",
-            "title": "Lady From Shanghai",
-            "description": "Third movie in the list.",
-            "date": "1948",
-            "origin": "USA",
-            "director": "Orson Welles",
-            "images": [],
-            "captions": []
+            "title": "Bees in Paradise",
+            "date": "1944",
+            "origin": "England",
+            "director": "Val GUest",
+            "images": ["bees in paradise_1.png", "bees in paradise_2.png", "bees in paradise_3.png",
+                       "bees in paradise_4.png", "bees in paradise_5.png"],
+            "captions": ["pic 1","pic 2", "pic 3", "pic 4", "pic 5"]
         },
         {
             "id": 444,
-            "category": "movies",
             "title": "The Drinkers",
-            "description": "Fourth movie in the list.",
-            "date": "1973",
+            "date": "1966",
             "origin": "Philippines",
             "director": "Gerardo de Leon",
-            "images": ["blood drinkers_1.jpg", "shadow strikes_1.jpg"],
+            "images": ["blood drinkers_1.png", "shadow strikes_1.png"],
             "captions": ["The vampire's assistant hovers nearby.",
                         "Waiting for the shadow to strike."]
+        },
+        {
+            "id": 555,
+            "title": "Aladdin's Magic Lamp",
+            "date": "1967",
+            "origin": "Russia",
+            "director": "Boris Rytsarev",
+            "images": ["aladdin's magic lamp_1.png", "aladdin's magic lamp.png",
+                       "aladdin's magic lamp_3.png", "aladdin's magic lamp_4.png"],
+            "captions": ["pic 1", "pic 2", "pic 3", "pic 4"]
+        },
+        {
+            "id": 666,
+            "title": "Black Angel",
+            "date": "2000",
+            "origin": "Chile",
+            "director": "Jorge Olguin",
+            "images": ["angel negro_1.png", "angel negro_1.png", "angel negro_3.png",
+                       "angel negro_4.png"],
+            "captions": ["pic 1", "pic 2", "pic 3", "pic 4"]
         }
     ]
 }
