@@ -6,13 +6,13 @@
       </div>
 
       <div class="main-content">
-        <router-view name='mainview'></router-view>
+        <router-view name='main'></router-view>
       </div>
 
       <div class="list-of-links">
         <event-list></event-list>
       </div>
-      <footer><router-view name='footerview'></router-view>
+      <footer><router-view name='footer'></router-view>
       </footer>
     </section>
   </div>
@@ -38,13 +38,13 @@ export default {
 }
 
 section {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: auto;
-    grid-gap: 0.5em;
-    grid-template-areas: "header header"
-                         "content links"
-                         "footer footer"
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 0.5em;
+  grid-template-areas: "header header"
+                       "content links"
+                       "footer footer"
 }
 .masthead {
   grid-area: header;
@@ -71,31 +71,9 @@ article {
   --double-width: calc((var(--single-width) * 2) + 4);
   --single-height: 240px;
 
+  display: inline-block;
   margin: 1em 2em;
+  padding: 0.5em;
   border: 1px solid blue;
 }
-.image_row {
-  margin-bottom: 1.5em;
-}
-
-figure {
-  width: var(--single-width);
-  height: auto;
-	display: inline-block;
-	margin: 1em;
-	border: 1px solid lightgrey;
-  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
-  -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
-}
-
-figcaption {
-  font-family: Times, serif;
-  font-size: .85em;
-  font-style: oblique;
-  text-align: left;
-  padding: 5px;
-  background-color: #fff;
-}
-
 </style>

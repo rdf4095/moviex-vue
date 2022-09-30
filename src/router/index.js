@@ -1,41 +1,40 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Landing from "../views/Landing.vue";
-import FooterDetails from "../views/FooterDetails.vue";
+import Footer from "../views/Footer.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "Landing",
-
-    components: {
-      mainview: Landing
-    }   
+    path: "/", name: "Landing",
+    components: { main: Landing }
   },
   { 
-    path: '/ForestOfDeath', name: 'ForestOfDeath',
-    components: {
-      mainview: () => import("../views/ForestOfDeath.vue"), footerview: FooterDetails
-    },
-    props: { mainview: { id: 222 }, footerview: { id: 222 } }
+    path: '/ForestOfDeath', name: 'Forest of Death',
+    components: { main: () => import("../views/ForestOfDeath.vue"), footer: Footer },
+    props: { main: { id: 222 }, footer: { id: 222 } }
   },
   { 
-    path: '/BloodDrinkers', name: 'BloodDrinkers',
-    components: {
-      mainview: () => import("../views/BloodDrinkers.vue"), footerview: FooterDetails
-    },
-    props: { mainview: { id: 444 }, footerview: { id: 444 } }
+    path: '/BloodDrinkers', name: 'Blood Drinkers',
+    components: { main: () => import("../views/BloodDrinkers.vue"), footer: Footer },
+    props: { main: { id: 444 }, footer: { id: 444 } }
   },
   { 
-    path: '/BeesInParadise', name: 'BeesInParadise',
-    components: {
-      mainview: () => import("../views/BeesInParadise.vue"), footerview: FooterDetails
-    },
-    props: { mainview: { id: 333 }, footerview: { id: 333 } }
+    path: '/BeesInParadise', name: 'Bees in Paradise',
+    components: { main: () => import("../views/BeesInParadise.vue"), footer: Footer },
+    props: { main: { id: 333 }, footer: { id: 333 } }
+  },
+  { 
+    path: '/AladdinsMagicLamp', name: "Aladdin's Magic Lamp",
+    components: { main: () => import("../views/AladdinsMagicLamp.vue"), footer: Footer },
+    props: { main: { id: 555 }, footer: { id: 555 } }
+  },
+  { 
+    path: '/BlackAngel', name: 'Black Angel',
+    components: { main: () => import("../views/BlackAngel.vue"), footer: Footer },
+    props: { main: { id: 666 }, footer: { id: 666 } }
   }
-
 ];
 
 const router = new VueRouter({

@@ -22,7 +22,7 @@
         },
         {
             "id": 444,
-            "title": "The Drinkers",
+            "title": "Blood Drinkers",
             "date": "1966",
             "origin": "Philippines",
             "director": "Gerardo de Leon",
@@ -36,8 +36,8 @@
             "date": "1967",
             "origin": "Russia",
             "director": "Boris Rytsarev",
-            "images": ["aladdin's magic lamp_1.png", "aladdin's magic lamp.png",
-                       "aladdin's magic lamp_3.png", "aladdin's magic lamp_4.png"],
+            "images": ["aladdin's magic lamp_66_1.png", "aladdin's magic lamp_66_2.png",
+                       "aladdin's magic lamp_66_3.png", "aladdin's magic lamp_66_4.png"],
             "captions": ["pic 1", "pic 2", "pic 3", "pic 4"]
         },
         {
@@ -46,7 +46,7 @@
             "date": "2000",
             "origin": "Chile",
             "director": "Jorge Olguin",
-            "images": ["angel negro_1.png", "angel negro_1.png", "angel negro_3.png",
+            "images": ["angel negro_1.png", "angel negro_2.png", "angel negro_3.png",
                        "angel negro_4.png"],
             "captions": ["pic 1", "pic 2", "pic 3", "pic 4"]
         }
