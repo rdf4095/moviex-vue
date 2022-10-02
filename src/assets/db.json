@@ -1,14 +1,14 @@
 {
     "events": [
         {
-            "id": 222,
-            "title": "Forest of Death",
-            "date": "2002",
-            "origin": "Japan",
-            "director": "Sion Sono",
-            "images": ["forest of death_1.png", "forest of death_2.png", 
-                       "forest of death_3.png", "forest of death_4.png"],
-            "captions": ["First pic.", "Second pic.", "Third pic.", "Fourth pic."]
+            "id": 444,
+            "title": "Blood Drinkers",
+            "date": "1966",
+            "origin": "Philippines",
+            "director": "Gerardo de Leon",
+            "images": ["blood drinkers_1.png", "blood drinkers_2.png"],
+            "captions": ["Tanya, vampire Marco's assistant.",
+                        "The priest knows much vampire lore."]
         },
         {
             "id": 333,
@@ -18,17 +18,8 @@
             "director": "Val GUest",
             "images": ["bees in paradise_1.png", "bees in paradise_2.png", "bees in paradise_3.png",
                        "bees in paradise_4.png", "bees in paradise_5.png"],
-            "captions": ["pic 1","pic 2", "pic 3", "pic 4", "pic 5"]
-        },
-        {
-            "id": 444,
-            "title": "Blood Drinkers",
-            "date": "1966",
-            "origin": "Philippines",
-            "director": "Gerardo de Leon",
-            "images": ["blood drinkers_1.png", "shadow strikes_1.png"],
-            "captions": ["The vampire's assistant hovers nearby.",
-                        "Waiting for the shadow to strike."]
+            "captions": ["The royal guard.","Lookouts search for approaching men.", 
+                         "Jani and Peeter in an idyllic setting.", "Arthur and Ronald."]
         },
         {
             "id": 555,
@@ -38,7 +29,8 @@
             "director": "Boris Rytsarev",
             "images": ["aladdin's magic lamp_66_1.png", "aladdin's magic lamp_66_2.png",
                        "aladdin's magic lamp_66_3.png", "aladdin's magic lamp_66_4.png"],
-            "captions": ["pic 1", "pic 2", "pic 3", "pic 4"]
+            "captions": ["The sage's tale beguiles Aladdin.", "The genie emerges from its lamp.", 
+                         "A shared attraction between Aladdin and the princess.", "A deliberation in the sultan's court."]
         },
         {
             "id": 666,
@@ -46,9 +38,10 @@
             "date": "2000",
             "origin": "Chile",
             "director": "Jorge Olguin",
-            "images": ["angel negro_1.png", "angel negro_2.png", "angel negro_3.png",
-                       "angel negro_4.png"],
-            "captions": ["pic 1", "pic 2", "pic 3", "pic 4"]
+            "images": ["black angel_1.png", "black angel_2.png", "black angel_3.png",
+                       "black angel_4.png"],
+            "captions": ["A nightmare--or a premonition.", "Gabriel relates his story to Carolina.", 
+                         "The judge views an incriminating tape.", "Victim of the mysterious killer."]
         }
     ]
 }

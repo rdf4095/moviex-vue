@@ -11,11 +11,6 @@ const routes = [
     components: { main: Landing }
   },
   { 
-    path: '/ForestOfDeath', name: 'Forest of Death',
-    components: { main: () => import("../views/ForestOfDeath.vue"), footer: Footer },
-    props: { main: { id: 222 }, footer: { id: 222 } }
-  },
-  { 
     path: '/BloodDrinkers', name: 'Blood Drinkers',
     components: { main: () => import("../views/BloodDrinkers.vue"), footer: Footer },
     props: { main: { id: 444 }, footer: { id: 444 } }

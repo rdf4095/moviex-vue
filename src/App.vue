@@ -64,11 +64,13 @@ footer {
   background: lightsalmon;
 }
 
-/* for all articles  */
 article {
     /* image size  */
   --single-width: 320px;
+  --single-width-wide: 480px;
   --double-width: calc((var(--single-width) * 2) + 4);
+
+  /* not needed if height=auto  */
   --single-height: 240px;
 
   display: inline-block;

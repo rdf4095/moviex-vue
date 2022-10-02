@@ -1,15 +1,11 @@
 <template>
   <div class="events">
     <h1>Events List</h1>
-      <!-- <router-link :to="{ name: 'ForestOfDeath' }">Forest of Death</router-link>
-      <router-link :to="{ name: 'BloodDrinkers' }">Blood Drinkers</router-link>
-      <router-link :to="{ name: 'Bees in Paradise' }">Bees in Paradise</router-link> -->
       <ul>
         <li v-for="ev in events" :key="ev.id">
           <router-link :to="{ name: ev.title }">{{ ev.title }} &nbsp;&nbsp;({{ ev.date }})</router-link>
         </li>
       </ul>
-      <!-- <router-link :to="{ name: events[1].title }">{{ events[1].title }}</router-link> -->
   </div>
 </template>
 
@@ -50,13 +46,13 @@ export default {
 </script>
 
 <style scoped>
-  .events {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-  }
-  ul {
-    list-style: none;
-    padding-left: 0.5em;
-  }
+.events {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+ul {
+  list-style: none;
+  padding-left: 0.5em;
+}
 </style>

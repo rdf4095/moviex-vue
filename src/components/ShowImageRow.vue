@@ -71,15 +71,19 @@ export default {
 <style scoped>
 .image_row {
     /* display: inline-block; */
+
+    /* this doesn't seem to do anything but push adjacent text up/down  */
     margin-bottom: 1em;
 }
 
 figure {
+  /* not needed if img width is set  */
   width: var(--single-width);
+
   /* try 09-30-2022  */
   float: left;
   height: auto;
-  margin: 1em;
+  margin: 1em 1.5em 0 0;
   border: 1px solid lightgrey;
   box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
@@ -87,7 +91,7 @@ figure {
 }
 
 figcaption {
-  font-family: Times, serif;
+  font-family: 'Times New Roman', serif;
   font-size: .85em;
   font-style: oblique;
   text-align: left;
@@ -96,7 +100,7 @@ figcaption {
 }
 
 img {
-  width: var(--single-width);
+  width: var(--single-width);  /* OR: single-width-wide for wider images  */
   vertical-align: top;
   background: white;
 }
