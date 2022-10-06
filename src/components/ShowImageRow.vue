@@ -1,22 +1,20 @@
 <template>
-    <div v-if="haveImages" class="image_row">
-        <figure>
+    <div v-if="haveImages" :class="[ 'image-row', {'allow-text-flow': classObject.stacked}]">
+        <figure :class="classObject">
             <img :src="getImgUrl( event.images[ imgarray[0]-1 ] )">
-            <figcaption id="caption1">{{ event.captions[0] }}</figcaption>
+            <figcaption id="caption1">{{ event.captions[ imgarray[0]-1 ] }}</figcaption>
         </figure>
-
-        <figure v-if="secondImage">
+        <figure v-if="secondImage" :class="classObject">
             <img :src="getImgUrl( event.images[ imgarray[1]-1 ] )">
-            <figcaption id="caption2">{{ event.captions[1] }}</figcaption>
+            <figcaption id="caption2">{{ event.captions[ imgarray[1]-1 ] }}</figcaption>
         </figure>
         <!-- debug
-        <p>images: {{ event.images }}</p>
-        <p>captions: {{ event.captions }}</p>
-        <p>imgarray: {{imgarray}}</p>
-        <p>imgarray: {{ imgarray[0]}}, {{imgarray[1] }}</p>
+          <p>images: {{ event.images }}</p>
+          <p>captions: {{ event.captions }}</p>
+          <p>imgarray: {{imgarray}}</p>
+          <p>imgarray: {{ imgarray[0]}}, {{imgarray[1] }}</p>
         -->
-      <!-- <div class="clearboth"></div> -->
-          </div>  
+    </div>  
 </template>
 
 <script>
@@ -24,34 +22,40 @@
 
 export default {
     // props: ["id", "imgarray"],
-    props: ["event", "imgarray"],
 
-    // data() {
-    //     return {
-    //         event: null
-    //     }
-    // },
+    // switch to object syntax,
+    // use 'sidebyside' as default for 'arrange'
+    props: ["event", "imgarray", "arrange", "orient"],
 
-    // data() {
-    //     return {
-    //         imgarray: this.event.images
-    //     }
-    // },
     computed: {
         secondImage: function() {
             return (this.imgarray.length == 2) ? true : false;
         },
         haveImages: function() {
-          let havesome = false;
-        //   let havesome = true;
+            let havesome = false;
 
-          if (this.event && this.event.images) {
-            havesome = (this.event.images[0].length > 0) ? true : false;
-          }
+            if (this.event && this.event.images) {
+              havesome = (this.event.images[0].length > 0) ? true : false;
+            }
 
-          return havesome;
+            return havesome;
+        },
+        classObject() {
+            return {
+                basic: true,
+                sidebyside: (this.arrange == "sidebyside") ? true : false,
+                stacked: (this.arrange == "stacked") ? true : false
+            }
         }
+    },
 
+    data() {
+        return {
+            // classes for image arrangement
+            // imgStacked: false,
+            // divHoriz: this.classObject.sidebyside;
+            // divHoriz: (this.classObject.sidebyside) ? true : false
+        }
     },
 
     methods: {
@@ -60,19 +64,7 @@ export default {
 
             return oneimage('./' + path)
         }
-    },
-
-    // created() {
-    //     // console.log("show id:",this.id);
-    //     EventService.getEvent(this.id)
-    //     .then(response => {
-    //         // console.log("one event", response.data);
-    //         this.event = response.data;
-    //     })
-    //     .catch(error => {
-    //         console.log(error);
-    //     })
-    // }
+    }
 }
 </script>
 
@@ -92,24 +84,33 @@ export default {
   There are several ways to achieve div expansion, but they all have side effects 
   on text flow and/or object alignment.
 */
-.image_row {
-    /* this doesn't seem to do anything but push adjacent text up/down,
-       ...and maybe not even that with the last-applied styles.
-    */
-    margin-bottom: 1em;
+div.image-row {
+  /* this doesn't seem to do anything except push adjacent text up/down,
+      ...and maybe not even that with the current styles.
+  */
+  margin-bottom: 1em;
+
+  /* for debug positioning  */
+  /* border: 1px solid orange; */
+}
+.allow-text-flow {
+  float: left;
 }
 
-figure {
-  float: left;
-
-  /* probably not needed:  */
-  /* height: auto; */
-
+figure.basic {
   margin: 0 1.5em 1em 0;
   border: 1px solid lightgrey;
   box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
   -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
+}
+.sidebyside {
+  float: left;
+}
+.stacked {
+  width: fit-content;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
 }
 
 figcaption {
