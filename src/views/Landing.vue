@@ -1,11 +1,11 @@
 <template>
-    <div>
-        Landing page
-        <p></p>
-        General content until a specific view is selected.
-    </div>
-    
+  <div>
+    Landing page
+    <p></p>
+    General content until a specific view is selected.
+  </div>  
 </template>
+
 
 <script>
 export default {
@@ -13,6 +13,6 @@ export default {
 }
 </script>
 
-<style scoped>
 
+<style scoped>
 </style>

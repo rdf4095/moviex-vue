@@ -13,7 +13,7 @@ const routes = [
   { 
     path: '/BloodDrinkers', name: 'Blood Drinkers',
     components: { main: () => import("../views/BloodDrinkers.vue"), footer: Footer },
-    props: { main: { id: 444 }, footer: { id: 444 } }
+    props: { main: { id: 444 }, footer: { id: 444, title: "'Blood Drinkers'" } }
   },
   { 
     path: '/BeesInParadise', name: 'Bees in Paradise',

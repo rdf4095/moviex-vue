@@ -18,6 +18,7 @@
   </article>
 </template>
 
+
 <script>
 import EventService from "../services/EventService.js";
 import ShowTitleBlock from "../components/ShowTitleBlock.vue";
@@ -33,14 +34,14 @@ export default {
     },
 
     components: {
-      ShowTitleBlock,
-      ShowImageRow
+        ShowTitleBlock,
+        ShowImageRow
     },
 
     created() {
         EventService.getEvent(this.id)
         .then(response => {
-            console.log("one event", response.data);
+            // console.log("one event", response.data);
             this.event = response.data;
         })
         .catch(error => {
@@ -49,6 +50,7 @@ export default {
     }
 }
 </script>
+
 
 <style>
 </style>

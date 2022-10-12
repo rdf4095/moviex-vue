@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <section class="main-container">
+    <main class="main-container">
       <div class="masthead">
         <masthead></masthead>
       </div>
@@ -14,21 +14,23 @@
       </div>
       <footer><router-view name='footer'></router-view>
       </footer>
-    </section>
+    </main>
   </div>
 </template>
+
 
 <script>
 import Masthead from "./components/Masthead.vue";
 import EventList from "./views/EventList.vue";
 
 export default {
-  components: {
-    Masthead,
-    EventList
-  }
+    components: {
+        Masthead,
+        EventList
+    }
 }
 </script>
+
 
 <style>
 #app {
@@ -37,7 +39,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 
-section {
+main {
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: auto;
@@ -52,7 +54,8 @@ section {
 }
 .main-content {
   grid-area: content;
-  background: lightblue;
+  /* background: lightblue; */
+  background: #eee;
   min-height: 400px;
 }
 .list-of-links {

@@ -1,12 +1,14 @@
 <template>
-  <div>Now viewing experiment: {{ id }}</div>
+  <div>Now viewing experiment: {{ id }}, code name: {{ title }}</div>
 </template>
+
 
 <script>
 export default {
-    props: ["id"]
+    props: ["id", "title"]
 }
 </script>
+
 
 <style scoped>
 div {

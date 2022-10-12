@@ -9,11 +9,12 @@
   </div>
 </template>
 
+
 <script>
-/* methods below expect a JSON database to be available via a server.
+/* expects a JSON database to be available via a server.
    One way: 
-     - install json-server into the vue3 dir with npm
-     - serve the database by navigating to the project dir and 
+     - install json-server into the parent dir using npm
+     - serve the database by navigating to the dir and 
        typing into a console: 
      - json-server dbpath
        where:
@@ -23,27 +24,27 @@
 import EventService from '@/services/EventService.js';
 
 export default {
-  name: "EventList",
+    name: "EventList",
 
   data() {
-    return {
-      events: null
-    }
+      return {
+          events: null
+      }
   },
 
   created() {
       EventService.getEvents()
       .then(response => {
-        this.events = response.data;
-        console.log(this.events);
+          this.events = response.data;
+          // console.log(this.events);
       })
       .catch(error => {
-        console.log(error);
+          console.log(error);
       })
   }
 };
-
 </script>
+
 
 <style scoped>
 .events {

@@ -18,6 +18,7 @@
   </article>
 </template>
 
+
 <script>
 import EventService from "../services/EventService.js";
 import ShowTitleBlock from "../components/ShowTitleBlock.vue";
@@ -33,8 +34,8 @@ export default {
     },
 
     components: {
-      ShowTitleBlock,
-      ShowImageRow
+        ShowTitleBlock,
+        ShowImageRow
     },
 
     created() {
@@ -49,6 +50,7 @@ export default {
     }
 }
 </script>
+
 
 <style>
 </style>
