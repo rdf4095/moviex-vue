@@ -13,12 +13,10 @@
 <script>
 /* expects a JSON database to be available via a server.
    One way: 
-     - install json-server into the parent dir using npm
+     - install json-server into the parent dir (e.g. using npm)
      - serve the database by navigating to the dir and 
        typing into a console: 
-     - json-server dbpath
-       where:
-         dbpath is the relative path to the database file
+     - json-server dir_path
 */
 // @ is an alias to /src
 import EventService from '@/services/EventService.js';

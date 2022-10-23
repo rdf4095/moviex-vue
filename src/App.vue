@@ -54,7 +54,6 @@ main {
 }
 .main-content {
   grid-area: content;
-  /* background: lightblue; */
   background: #eee;
   min-height: 400px;
 }
@@ -72,10 +71,24 @@ article {
   --single-width: 320px;
   --single-width-wide: 480px;
   --double-width: calc((var(--single-width) * 2) + 4);
+  --poster-width: 50%;
+  --single-sidebar: 100px;
 
   display: inline-block;
   margin: 1em 2em;
   padding: 0.5em;
   border: 1px solid blue;
+}
+
+article > p {
+  margin-top: 0.25em;
+}
+
+section {
+  font-family: "Allan", Verdana, sans-serif;
+  font-size: 1.25em;
+  color: #099;
+  margin: 15px 0 5px 0;
+  display: inline;
 }
 </style>

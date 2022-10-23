@@ -1,10 +1,17 @@
+<!-- more extensive image captioning than ShowImageRow  
+     Caption is displayed as a sidebar, to the right by default
+-->
 <template>
   <div v-if="haveImages" :class="[ 'image-row', classDiv ]">
-    <figure v-for="(item,index) in images" :key="item"
-            :class="[ 'basic', classFigure ]">
+    <figure v-for="item in images" :key="item"
+            :class="[ 'basic' ]">
       <img :src="getImgUrl( item )">
-      <figcaption id="caption1">{{ captions[index] }}</figcaption>
     </figure>
+
+    <div id="test">
+      <slot></slot>
+    </div>
+
   </div>  
 </template>
 
@@ -18,11 +25,11 @@ export default {
         imgarray: {
             type: Array
         },
-        arrange: {
-            // sidebyside, stacked
-            type: String,
-            default: "stacked"
-        },
+        // arrange: {
+        //     // sidebyside, stacked
+        //     type: String,
+        //     default: "stacked"
+        // },
         textflow: {
             // left, right
             type: String,
@@ -65,14 +72,14 @@ export default {
                 textleft: (this.textflow == "left") ? true: false,
                 centered: (this.textflow == "center") ? true: false
             }
-        },
-        classFigure() {
-            return {
-                basic: true,
-                sidebyside: (this.arrange == "sidebyside") ? true : false,
-                stacked: (this.arrange == "stacked") ? true : false
-            }
         }
+        // classFigure() {
+        //     return {
+        //         basic: true,
+        //         sidebyside: (this.arrange == "sidebyside") ? true : false,
+        //         stacked: (this.arrange == "stacked") ? true : false
+        //     }
+        // }
     },
 
     data() {
@@ -92,17 +99,26 @@ export default {
 
 
 <style scoped>
+/* test slot  */
 div#test {
   position: absolute;
   right: 0;
   top: 0;
-  width: 100px;
+  box-sizing: border-box;
+  width: var(--single-sidebar);
+  height: 100%;    /*  ?? or fit-content  */
+  margin-left: 0.25em;
   background: yellow;
+  /* border: 1px solid lightgrey; */
   padding: 0.25em;
+  font-size: 0.8em;
 }
+
 div.image-row {
   position: relative;
-  width: fit-content;
+  /* width: fit-content; */
+  width: calc(var(--single-width) + var(--single-sidebar) + 0.25em);
+  margin: 0 1em;
 }
 .textleft {
   float: right;
@@ -118,11 +134,9 @@ div.image-row {
 }
 
 figure.basic {
-  margin: 0 1.25em 1.25em 0;
-  border: 1px solid lightgrey;
-  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
-  -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
+  /* margin: 0 1.25em 1.25em 0; */
+  margin: 0;
+  /* border: 1px solid lightgrey; */
 }
 .sidebyside {
   display: inline-block;
@@ -138,19 +152,10 @@ figure.basic {
   margin: 0 0.25em 1em 1em;
 }
 
-figcaption {
-  font-family: 'Times New Roman', serif;
-  font-size: .85em;
-  font-style: oblique;
-  text-align: left;
-  padding: 5px;
-  background-color: #fff;
-}
-
 img {
   width: var(--single-width);
   vertical-align: top;
-  background: white;
+  background: #eee;
 }
 /*  TODO:
     1. consider a prop to change the image width (will need more width variables)
