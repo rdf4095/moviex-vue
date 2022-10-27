@@ -1,14 +1,16 @@
-<!-- more extensive image captioning than ShowImageRow  
-     Caption is displayed as a sidebar, to the right by default
+<!-- 
+  Displays a group of images as a block (no margins), expecting more caption text
+  than ImageRow, e.g. with description that applies to more than 1 image.
+  Caption is displayed as a separate div, to the right (default) or below.
 -->
 <template>
-  <div v-if="haveImages" :class="[ 'image-row', classDiv ]">
+  <div v-if="haveImages" :class="[ 'image-block', classDiv ]">
     <figure v-for="item in images" :key="item"
-            :class="[ 'basic' ]">
+            :class="[ 'basic', classFigure ]">
       <img :src="getImgUrl( item )">
     </figure>
 
-    <div id="test">
+    <div :class="[ 'block-caption', classDivCaption ]">
       <slot></slot>
     </div>
 
@@ -25,11 +27,11 @@ export default {
         imgarray: {
             type: Array
         },
-        // arrange: {
-        //     // sidebyside, stacked
-        //     type: String,
-        //     default: "stacked"
-        // },
+        arrange: {
+            // sidebyside, stacked
+            type: String,
+            default: "stacked"
+        },
         textflow: {
             // left, right
             type: String,
@@ -70,16 +72,23 @@ export default {
             return {
                 textright: (this.textflow == "right") ? true : false,
                 textleft: (this.textflow == "left") ? true: false,
-                centered: (this.textflow == "center") ? true: false
+                centered: (this.textflow == "center") ? true: false,
+                bottombar: (this.arrange == "sidebyside") ? true : false
+            }
+        },
+        classDivCaption() {
+            return {
+                captionbottom: (this.arrange == "sidebyside") ? true : false,
+                captionrightside: (this.arrange == "stacked") ? true : false
+            }
+        },
+        classFigure() {
+            return {
+                basic: true,
+                sidebyside: (this.arrange == "sidebyside") ? true : false,
+                stacked: (this.arrange == "stacked") ? true : false
             }
         }
-        // classFigure() {
-        //     return {
-        //         basic: true,
-        //         sidebyside: (this.arrange == "sidebyside") ? true : false,
-        //         stacked: (this.arrange == "stacked") ? true : false
-        //     }
-        // }
     },
 
     data() {
@@ -99,34 +108,50 @@ export default {
 
 
 <style scoped>
-/* test slot  */
-div#test {
+div.block-caption {
+  box-sizing: border-box;
+  background: yellow;
+  padding: 0.5em 0.25em;
+  font-family: 'Times New Roman', serif;
+  font-size: .85em;
+  font-style: oblique;
+}
+.captionrightside {
   position: absolute;
   right: 0;
   top: 0;
-  box-sizing: border-box;
   width: var(--single-sidebar);
-  height: 100%;    /*  ?? or fit-content  */
-  margin-left: 0.25em;
-  background: yellow;
-  /* border: 1px solid lightgrey; */
-  padding: 0.25em;
-  font-size: 0.8em;
+  height: 100%;
+  margin: 0 0 0 0.25em;
+}
+.captionbottom {
+  position: relative;
+  right: initial;
+  top: initial;
+  width: 100%;
+  height: fit-content;
+  margin: 0.25em 0 0 0;
 }
 
-div.image-row {
+div.image-block {
   position: relative;
-  /* width: fit-content; */
   width: calc(var(--single-width) + var(--single-sidebar) + 0.25em);
-  margin: 0 1em;
+  /* margin: 0 1em; */
+
+  /* consider adding box-shadow, as in ImageRow.vue  */
+  /* consider outline, same color as the caption background  */
 }
-.textleft {
-  float: right;
-  margin-left: 1em;
+div.bottombar {
+  /* width: var(--single-width); */
+  width: fit-content;
 }
 .textright {
   float: left;
-  margin-right: 0.75em;
+  margin: 0 1.25em 1em 0;
+}
+.textleft {
+  float: right;
+  margin: 0 0 1em 1.25em;
 }
 .centered {
   float: none;
@@ -134,9 +159,7 @@ div.image-row {
 }
 
 figure.basic {
-  /* margin: 0 1.25em 1.25em 0; */
   margin: 0;
-  /* border: 1px solid lightgrey; */
 }
 .sidebyside {
   display: inline-block;
@@ -148,16 +171,17 @@ figure.basic {
 }
 
 /* probably don't need this:  */
-.right {
+/* .right {
   margin: 0 0.25em 1em 1em;
-}
+} */
 
 img {
   width: var(--single-width);
-  vertical-align: top;
+  vertical-align: bottom;
   background: #eee;
 }
 /*  TODO:
-    1. consider a prop to change the image width (will need more width variables)
+    1. consider a prop to change the image width.
+       (will need more width variables in App.vue)
 */
 </style>

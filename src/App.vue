@@ -89,6 +89,6 @@ section {
   font-size: 1.25em;
   color: #099;
   margin: 15px 0 5px 0;
-  display: inline;
+  display: inline-block;
 }
 </style>

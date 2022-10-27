@@ -1,3 +1,8 @@
+<!--
+  Display one or more images, stacked one above the other, or side by side, separated
+  by margins.
+  Each image has its own caption.
+-->
 <template>
   <div v-if="haveImages" :class="[ 'image-row', classDiv ]">
     <figure v-for="(item,index) in images" :key="item"
@@ -92,25 +97,25 @@ export default {
 
 
 <style scoped>
-div#test {
+/* div#test {
   position: absolute;
   right: 0;
   top: 0;
   width: 100px;
   background: yellow;
   padding: 0.25em;
-}
+} */
 div.image-row {
   position: relative;
   width: fit-content;
 }
-.textleft {
-  float: right;
-  margin-left: 1em;
-}
 .textright {
   float: left;
   margin-right: 0.75em;
+}
+.textleft {
+  float: right;
+  margin-left: 1em;
 }
 .centered {
   float: none;
@@ -133,26 +138,28 @@ figure.basic {
   width: -webkit-fit-content;
 }
 
-/* probably don't need this:  */
-.right {
+/* probably don't need this  */
+/* .right {
   margin: 0 0.25em 1em 1em;
-}
+} */
 
 figcaption {
+  margin-top: 0.25em;
+  padding: 5px;
   font-family: 'Times New Roman', serif;
   font-size: .85em;
   font-style: oblique;
   text-align: left;
-  padding: 5px;
   background-color: #fff;
 }
 
 img {
   width: var(--single-width);
-  vertical-align: top;
+  vertical-align: bottom;
   background: white;
 }
 /*  TODO:
-    1. consider a prop to change the image width (will need more width variables)
+    1. consider a prop to change the image width.
+       (will need more width variables in App.vue)
 */
 </style>
