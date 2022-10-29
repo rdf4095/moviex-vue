@@ -1,7 +1,7 @@
 {
     "events": [
         {
-            "id": 444,
+            "id": 1,
             "title": "Blood Drinkers",
             "date": "1966",
             "origin": "Philippines",
@@ -11,18 +11,18 @@
                         "The priest knows much vampire lore."]
         },
         {
-            "id": 333,
+            "id": 2,
             "title": "Bees in Paradise",
             "date": "1944",
             "origin": "England",
             "director": "Val Guest",
             "images": ["bees in paradise_1.png", "bees in paradise_2.png", "bees in paradise_3.png",
                        "bees in paradise_4.png", "bees in paradise_5.png"],
-            "captions": ["The royal guard.","Lookouts search for approaching men.", 
+            "captions": ["The royal guard.","Lookouts search for approaching ships.", 
                          "Jani and Peter in an idyllic setting.", "Arthur and Ronald."]
         },
         {
-            "id": 555,
+            "id": 3,
             "title": "Aladdin's Magic Lamp",
             "date": "1967",
             "origin": "Russia",
@@ -33,7 +33,7 @@
                          "A shared attraction between Aladdin and the princess.", "A deliberation in the sultan's court."]
         },
         {
-            "id": 666,
+            "id": 4,
             "title": "Black Angel",
             "date": "2000",
             "origin": "Chile",

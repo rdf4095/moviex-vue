@@ -1,11 +1,13 @@
 <template>
   <div class="events">
-    <h1>Events List</h1>
-      <ul>
-        <li v-for="ev in events" :key="ev.id">
-          <router-link :to="{ name: ev.title }">{{ ev.title }} &nbsp;&nbsp;({{ ev.date }})</router-link>
-        </li>
-      </ul>
+    <h1>Xperiments</h1>
+    <ul>
+      <li v-for="ev in events" :key="ev.id">
+        <router-link :to="{ name: ev.title }">
+          {{ ev.id }} - {{ ev.title }} &nbsp;&nbsp; ({{ ev.date }})
+        </router-link>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -49,6 +51,10 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: left;
+}
+h1 {
+  padding-left: 0.25em;
+  /*  add font  */
 }
 ul {
   list-style: none;

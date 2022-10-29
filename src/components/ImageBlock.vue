@@ -13,7 +13,6 @@
     <div :class="[ 'block-caption', classDivCaption ]">
       <slot></slot>
     </div>
-
   </div>  
 </template>
 

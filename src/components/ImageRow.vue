@@ -8,13 +8,15 @@
     <figure v-for="(item,index) in images" :key="item"
             :class="[ 'basic', classFigure ]">
       <img :src="getImgUrl( item )">
-      <figcaption id="caption1">{{ captions[index] }}</figcaption>
+      <figcaption>{{ captions[index] }}</figcaption>
     </figure>
   </div>  
 </template>
 
 
 <script>
+/*        <figcaption id="caption1">{{ captions[index] }}</figcaption>
+*/
 export default {
     props: {
         event: {
