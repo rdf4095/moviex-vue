@@ -1,13 +1,13 @@
 <!--
-  Display one or more images, stacked one above the other, or side by side, separated
-  by margins.
+  Display one or more images, stacked one above the other (default), or side by side.
+  Images are separated by margins.
   Each image has its own caption.
 -->
 <template>
   <div v-if="haveImages" :class="[ 'image-row', classDiv ]">
     <figure v-for="(item,index) in images" :key="item"
             :class="[ 'basic', classFigure ]">
-      <img :src="getImgUrl( item )">
+      <img :src="getImgUrl( item )" :class="[ classImage ]">
       <figcaption>{{ captions[index] }}</figcaption>
     </figure>
   </div>  
@@ -24,6 +24,10 @@ export default {
         },
         imgarray: {
             type: Array
+        },
+        imgsize: {
+            type: String,
+            default:"x1"
         },
         arrange: {
             // sidebyside, stacked
@@ -79,6 +83,13 @@ export default {
                 sidebyside: (this.arrange == "sidebyside") ? true : false,
                 stacked: (this.arrange == "stacked") ? true : false
             }
+        },
+        classImage() {
+            return {
+                x1: (this.imgsize == "x1") ? true : false,
+                x1wide: (this.imgsize == "x1wide") ? true : false,
+                x2: (this.imgsize == "x2") ? true : false
+            }
         }
     },
 
@@ -99,14 +110,6 @@ export default {
 
 
 <style scoped>
-/* div#test {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100px;
-  background: yellow;
-  padding: 0.25em;
-} */
 div.image-row {
   position: relative;
   width: fit-content;
@@ -156,12 +159,16 @@ figcaption {
 }
 
 img {
-  width: var(--single-width);
   vertical-align: bottom;
   background: white;
 }
-/*  TODO:
-    1. consider a prop to change the image width.
-       (will need more width variables in App.vue)
-*/
+.x1 {
+  width: var(--single-width);
+}
+.x1wide {
+  width: var(--single-width-wide);
+}
+.x2 {
+  width: var(--double-width);
+}
 </style>

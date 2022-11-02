@@ -1,13 +1,14 @@
 <!-- 
-  Displays a group of images as a block (no margins), expecting more caption text
-  than ImageRow, e.g. with description that applies to more than 1 image.
-  Caption is displayed as a separate div, to the right (default) or below.
+  Display a block of images, stacked one above the other (default), or side by side.
+  Images are not separated by margins.
+  There is a single caption, with text that may apply to more than 1 image,
+  displayed as a separate div, to the right (default) or below.
 -->
 <template>
   <div v-if="haveImages" :class="[ 'image-block', classDiv ]">
     <figure v-for="item in images" :key="item"
             :class="[ 'basic', classFigure ]">
-      <img :src="getImgUrl( item )">
+      <img :src="getImgUrl( item )" :class="[ classImage ]">
     </figure>
 
     <div :class="[ 'block-caption', classDivCaption ]">
@@ -25,6 +26,10 @@ export default {
         },
         imgarray: {
             type: Array
+        },
+        imgsize: {
+            type: String,
+            default:"x1"
         },
         arrange: {
             // sidebyside, stacked
@@ -87,6 +92,13 @@ export default {
                 sidebyside: (this.arrange == "sidebyside") ? true : false,
                 stacked: (this.arrange == "stacked") ? true : false
             }
+        },
+        classImage() {
+            return {
+                x1: (this.imgsize == "x1") ? true : false,
+                x1wide: (this.imgsize == "x1wide") ? true : false,
+                x2: (this.imgsize == "x2") ? true : false
+            }
         }
     },
 
@@ -137,7 +149,6 @@ div.image-block {
   width: calc(var(--single-width) + var(--single-sidebar) + 0.25em);
   /* margin: 0 1em; */
 
-  /* consider adding box-shadow, as in ImageRow.vue  */
   /* consider outline, same color as the caption background  */
 }
 div.bottombar {
@@ -159,6 +170,9 @@ div.bottombar {
 
 figure.basic {
   margin: 0;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
 }
 .sidebyside {
   display: inline-block;
@@ -175,12 +189,20 @@ figure.basic {
 } */
 
 img {
-  width: var(--single-width);
   vertical-align: bottom;
   background: #eee;
 }
-/*  TODO:
-    1. consider a prop to change the image width.
-       (will need more width variables in App.vue)
+.x1 {
+  width: var(--single-width);
+}
+.x1wide {
+  width: var(--single-width-wide);
+}
+/*  double-width is probably not good for image blocks of more than
+    two imgs wide.  Consider logic to test for this and fall back to
+    single-wide...
 */
+.x2 {
+  width: var(--double-width);
+}
 </style>
