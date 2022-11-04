@@ -19,6 +19,14 @@
 
 
 <script>
+/*
+  named slot
+    in this component: <slot name="myname">
+    in the caller: instead of blockcaption data, wrap this in a template:
+      <template v-slot=myname></template>
+    shorthand version:
+      <template #myname>any content to be passed</template>
+*/
 export default {
     props: {
         event: {
@@ -53,6 +61,7 @@ export default {
             return arr;
         },
         captions: function() {
+        // NOT USED FOR ImageBlock...
             // create zero-based array of captions
             let arr = [];
 

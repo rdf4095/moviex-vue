@@ -52,6 +52,18 @@ export default {
         },
         captions: function() {
             // create zero-based array of captions
+            /*
+              Could combine images and captions into one array of objects,
+              each with an image filename and a caption string.  Then we won't need
+              the index in the v-for of the template. That makes it just like the v-for
+              in ImageBlock.vue
+              ...which suggests we could combine ImageRow.vue and ImageBlock.vue into
+              a single component (with at least one additional prop: grouping='block'||'row')
+              
+              Some thought should be given to styles then. If too many style classes would be
+              needed, an alternative is to use a component ImageDisplay that calls one of
+              two components to only render the specified images.
+            */
             let arr = [];
 
             this.imgarray.forEach(e => arr.push(this.event.captions[e-1]));

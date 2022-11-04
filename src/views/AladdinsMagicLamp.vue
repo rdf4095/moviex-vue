@@ -8,7 +8,9 @@
 	    Aladdin's mother hesitantly uses the genie to free her son, and Aladdin works some magical mischief to rejoin the princess.  They are about to have their wedding when the evil sage returns, determined to get the lamp for himself--which he does.  The sage magically substitutes himself for the sultan and the genie, ordered to kill Aladdin, cannot bring himself to harm his friend.  So, Aladdin gets him an alternate receptacle in which to live, and the genie is again empowered to help him.  The situation is set right, and Aladdin gets back with the princess.
     </p>
     <!-- <ImageRow :event=event :imgarray="[1,2]"></ImageRow> -->
-    <ImageBlock :event=event :imgarray="[1,2]" :arrange="'stacked'" :imgsize="'x1wide'">This is the slot</ImageBlock>
+    <ImageBlock :event=event :imgarray="[1,2]" :arrange="'stacked'" :imgsize="'x1wide'">
+      {{ blockcaption }}
+    </ImageBlock>
     <section>Notes</section>
     <p>
       The Bagdad pictured in this easy-going version of the story is simple in design, spartan in its furnishings, has clean and spacious open areas, and features architecture of pleasing white and cream, a far cry from the cluttered and dirt-crusted cities the movies usually offer us as examples of Middle East culture.  Even the Sultan's dungeon is scrubbed and well-lit. The people wear a lot of pastels, which along with all the white gives a distinct look.  Special effects to depict the otherwhere world in which the lamp is found, and the otherness of the genie, are also simple, with models, and in-camera effects such as double exposures and forced perspective.  Nearly a third of the running time is devoted to the first part of the Aladdin story, in which the sorcerer who seeks the lamp is revealed for the scoundrel he is.  His wandering through the city, where most of the people he runs into are oblivious to his questions, also serves to show us the richness of city life.  These people play elaborate games, are obsessed with their personal trinkets and devices, 
@@ -31,7 +33,8 @@ export default {
 
     data() {
         return {
-            event: null
+            event: null,
+            blockcaption: 'This is the default slot text'
         }
     },
 
