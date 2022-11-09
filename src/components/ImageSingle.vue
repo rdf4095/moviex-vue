@@ -5,30 +5,22 @@
   Each image has its own caption.
 -->
 <template>
-  <div :class="[ 'image-block', classDiv ]">
+  <div :class="[ 'image-row', classDiv ]">
     <figure v-for="(item,index) in imagearr" :key="index"
             :class="[ 'basic', classFigure ]">
       <img :src="getImgUrl( item.image )" :class="[ classImage ]">
+      <figcaption>{{ item.caption }}</figcaption>
     </figure>
-
-    <div :class="[ 'block-caption', classDivCaption ]">
-      <slot name='myblock'></slot>
-    </div>
   </div>  
 </template>
 
 
 <script>
-/*
-  named slot shorthand:
-      <template #myname>any content to be passed</template>
-*/
 export default {
   props: {
       event: {type: Object},
       imagearr: {type: Array},
       classDiv: {type: Object},
-      classDivCaption: {type: Object},
       classFigure: {type: Object},
       classImage: {type: Object}
   },
@@ -42,7 +34,7 @@ export default {
   },
 
   mounted() {
-      console.log("in ImageBlockNEW:");
+      console.log("in ImageSingle:");
       console.log("    imagearr:",this.imagearr);
       console.log("    classDiv:",this.classDiv);
       console.log("    classFigure:",this.classFigure);
@@ -54,52 +46,17 @@ export default {
 
 
 <style scoped>
-div.block-caption {
-  box-sizing: border-box;
-  background: yellow;
-  padding: 0.5em 0.25em;
-  font-family: 'Times New Roman', serif;
-  font-size: .85em;
-  font-style: oblique;
-}
-.captionrightside {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: var(--single-sidebar);
-  height: 100%;
-  margin: 0 0 0 0.25em;
-}
-.captionbottom {
+div.image-row {
   position: relative;
-  right: initial;
-  top: initial;
-  width: 100%;
-  height: fit-content;
-  margin: 0.25em 0 0 0;
-}
-
-div.image-block {
-  position: relative;
-  width: calc(var(--single-width) + var(--single-sidebar) + 0.25em);
-  /* margin: 0 1em; */
-
-  /* consider outline, same color as the caption background  */
-  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
-  -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
-}
-div.bottombar {
-  /* width: var(--single-width); */
   width: fit-content;
 }
 .textright {
   float: left;
-  margin: 0 1.25em 1em 0;
+  margin-right: 0.75em;
 }
 .textleft {
   float: right;
-  margin: 0 0 1em 1.25em;
+  margin-left: 1em;
 }
 .centered {
   float: none;
@@ -107,10 +64,11 @@ div.bottombar {
 }
 
 figure.basic {
-  margin: 0;
-  /* box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
+  margin: 0 1.25em 1.25em 0;
+  border: 1px solid lightgrey;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
-  -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35); */
+  -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
 }
 .sidebyside {
   display: inline-block;
@@ -121,9 +79,19 @@ figure.basic {
   width: -webkit-fit-content;
 }
 
+figcaption {
+  margin-top: 0.25em;
+  padding: 5px;
+  font-family: 'Times New Roman', serif;
+  font-size: .85em;
+  font-style: oblique;
+  text-align: left;
+  background-color: #fff;
+}
+
 img {
   vertical-align: bottom;
-  background: #eee;
+  background: white;
 }
 .x1 {
   width: var(--single-width);
@@ -133,4 +101,5 @@ img {
 }
 .x2 {
   width: var(--double-width);
-}</style>
+}
+</style>
