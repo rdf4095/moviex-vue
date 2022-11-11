@@ -71,7 +71,7 @@ article {
     /* image size  */
   --single-width: 320px;
   --single-width-wide: 480px;
-  --double-width: calc((var(--single-width) * 2) + 4);
+  --double-width: calc(var(--single-width) * 2);
   --poster-width: 50%;
   --single-sidebar: 100px;
 

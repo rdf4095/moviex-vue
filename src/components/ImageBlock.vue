@@ -6,6 +6,7 @@
 -->
 <template>
   <div :class="[ 'image-block', classDiv ]">
+
     <figure v-for="(item,index) in imagearr" :key="index"
             :class="[ 'basic', classFigure ]">
       <img :src="getImgUrl( item.image )" :class="[ classImage ]">
@@ -14,6 +15,7 @@
     <div :class="[ 'block-caption', classDivCaption ]">
       <slot name='myblock'></slot>
     </div>
+
   </div>  
 </template>
 
@@ -42,11 +44,11 @@ export default {
   },
 
   mounted() {
-      console.log("in ImageBlockNEW:");
-      console.log("    imagearr:",this.imagearr);
-      console.log("    classDiv:",this.classDiv);
-      console.log("    classFigure:",this.classFigure);
-      console.log("    classImage:",this.classImage);
+      console.log("in ImageBlock:");
+      // console.log("    imagearr:",this.imagearr);
+      // console.log("    classDiv:",this.classDiv);
+      // console.log("    classFigure:",this.classFigure);
+      // console.log("    classImage:",this.classImage);
   }
 
 }
@@ -81,13 +83,20 @@ div.block-caption {
 
 div.image-block {
   position: relative;
-  width: calc(var(--single-width) + var(--single-sidebar) + 0.25em);
-  /* margin: 0 1em; */
 
   /* consider outline, same color as the caption background  */
   box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
   -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
+}
+.div_x1 {
+  width: calc(var(--single-width) + var(--single-sidebar) + 0.25em);
+}
+.div_x1wide {
+  width: calc(var(--single-width-wide) + var(--single-sidebar) + 0.25em);
+}
+.div_x2 {
+  width: calc(var(--double-width) + var(--single-sidebar) + 0.25em);
 }
 div.bottombar {
   /* width: var(--single-width); */
@@ -105,12 +114,14 @@ div.bottombar {
   float: none;
   margin: 0 auto;
 }
+/* not well supported yet...  */
+/* div:has(img.x1wide) {
+  width: calc(var(--single-width-wide) + var(--single-sidebar) + 1.25em);
+} */
+
 
 figure.basic {
   margin: 0;
-  /* box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
-  -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35); */
 }
 .sidebyside {
   display: inline-block;
@@ -133,4 +144,5 @@ img {
 }
 .x2 {
   width: var(--double-width);
-}</style>
+}
+</style>

@@ -47,7 +47,7 @@ export default {
         },
         txt: {
             type: String,
-            default: 'right'      // 'left'
+            default: 'right'      // 'left', 'center'
         }
     },
 
@@ -58,10 +58,9 @@ export default {
 
     computed: {
         imagearr: function() {
-        // create one-based array, a subset of images/captions passed in
-            let arr = [];//["bees in paradise_1.png", "bees in paradise_2.png"];
+        // create one-based array of image objects
+            let arr = [];
 
-            // if (this.event?.images == null) {console.log("no images"); return arr}
             if (this.event?.images == null) {return arr}
 
             this.imgarray.forEach(e => {
@@ -73,9 +72,9 @@ export default {
 
             return arr;
         },
-        secondImage: function() {
-            return (this.imgarray.length == 2) ? true : false;
-        },
+        // secondImage: function() {
+        //     return (this.imgarray.length == 2) ? true : false;
+        // },
         haveImages: function() {
             let havesome = false;
 
@@ -90,10 +89,13 @@ export default {
         },
         classDiv() {
             return {
-                textright: (this.txt == "right") ? true : false,
-                textleft: (this.txt == "left") ? true: false,
-                centered: (this.txt == "center") ? true: false,
-                bottombar: (this.arrange == "sidebyside") ? true : false
+                textright: (this.txt == 'right') ? true : false,
+                textleft: (this.txt == 'left') ? true: false,
+                centered: (this.txt == 'center') ? true: false,
+                bottombar: (this.arrange == 'sidebyside') ? true : false,
+                div_x1: (this.group == 'block' && this.size == 'x1') ? true : false,
+                div_x1wide: (this.group == 'block' && this.size == 'x1wide') ? true : false,
+                div_x2: (this.group == 'block' && this.size == 'x2') ? true : false
             }
         },
         classDivCaption() {
@@ -104,7 +106,7 @@ export default {
         },
         classFigure() {
             return {
-                basic: true,
+                // basic: true,
                 sidebyside: (this.arrange == "sidebyside") ? true : false,
                 stacked: (this.arrange == "stacked") ? true : false
             }

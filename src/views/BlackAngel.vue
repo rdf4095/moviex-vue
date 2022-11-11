@@ -23,8 +23,6 @@
 import EventService from "../services/EventService.js";
 import ShowTitleBlock from "../components/ShowTitleBlock.vue";
 import ImageDisplay from "../components/ImageDisplay.vue";
-// import ImageBlock from "../components/ImageBlock.vue";
-// defaults for ImageDisplay and ImageBlock...  arrange: stacked, textflow: right
 
 export default {
     props: ["id"],
@@ -37,14 +35,12 @@ export default {
 
     components: {
         ShowTitleBlock,
-        ImageDisplay,
-        // ImageBlock
+        ImageDisplay
     },
 
     created() {
         EventService.getEvent(this.id)
         .then(response => {
-            console.log("one event", response.data);
             this.event = response.data;
         })
         .catch(error => {

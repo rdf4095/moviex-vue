@@ -33,9 +33,7 @@
 <script>
 import EventService from "../services/EventService.js";
 import ShowTitleBlock from "../components/ShowTitleBlock.vue";
-import ImageRow from "../components/ImageRow.vue";
-import ImageBlock from "../components/ImageBlockOLD.vue";
-// defaults for ImageRow and ImageBlock...  arrange: stacked, textflow: right
+import ImageDisplay from "../components/ImageDisplay.vue";
 
 export default {
     props: ["id"],
@@ -49,8 +47,7 @@ export default {
 
     components: {
         ShowTitleBlock,
-        ImageRow,
-        ImageBlock
+        ImageDisplay
     },
 
     created() {
