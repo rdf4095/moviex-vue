@@ -1,11 +1,13 @@
 <template>
   <article>
     <ShowTitleBlock :event=event></ShowTitleBlock>
+    <section>Story</section>
     <p>
       1990, Santiago, Chile.  After graduation, several friends have a raucus holiday, which culminates in fatal tragedy for one of them, the strange, shy, obsessivly religious Angel...
-	    Ten years later, one of the group, Gabriel Echeverria, is now a forensic specialist who sees that two of his friends who have died violently, and comes to believe that somehow, everyone present the day Angel died could now be in danger. He wonders if Angel has returned, but the truth is even more bizarre than that.
+	    Ten years later, one of the group, Gabriel Echeverria, is now a forensic specialist who sees that two of his friends who have died violently, and comes to believe that everyone present the day Angel died could now be in danger. He wonders if Angel has somehow returned, but the truth is even more bizarre than that.
     </p>
     <ImageDisplay :event=event :imgarray="[1,2]"></ImageDisplay>
+    <section>Notes</section>
     <p>
       This is the first horror film made entirely in Chile.  The somber musical score is by Juan Francisco Cueto.  Music over the closing credits includes a heavy metal version of "Dust in the Wind", by Los Mox!
 	    The Instituto Medico Legal De Santiago, where Gabriel works in the story, is a real place, and is acknowledged in the credits.  Quite a bit of filming was done there, and young director Olguin says he went to classes on forensic medicine and attended real autopsies to make sure this background part of the film was done authentically.

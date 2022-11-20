@@ -15,6 +15,6 @@ export default {
 
 <style scoped>
 div {
-    background: lightcoral;
+  background: lightcoral;
 }
 </style>

@@ -68,7 +68,7 @@ footer {
 }
 
 article {
-    /* image size  */
+    /* use consistent image sizes  */
   --single-width: 320px;
   --single-width-wide: 480px;
   --double-width: calc(var(--single-width) * 2);

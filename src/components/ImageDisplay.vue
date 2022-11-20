@@ -2,7 +2,7 @@
   Set parameters for display of one or more images.
 -->
 <template>
-  <div>
+  <div v-if="haveImages">
     <ImageSingle v-if="singleImages"
         :event="event"
         :imagearr="imagearr"
@@ -17,6 +17,11 @@
         :classDivCaption="classDivCaption"
         :classFigure="classFigure"
         :classImage="classImage">
+        
+        <template #block-content>
+          <slot name="block-slot"></slot>
+        </template>
+
     </ImageBlock>
   </div>
 </template>
@@ -57,11 +62,26 @@ export default {
     },
 
     computed: {
+        haveImages: function() {
+            let havesome = false;
+
+            if (this.event && this.event?.images != null && this.imgarray != null) {
+              havesome = (this.event.images[0].length > 0) ? true : false;
+            }
+
+            return havesome;
+        },
         imagearr: function() {
-        // create one-based array of image objects
+        // create one-based array of image objects, as specified by the user
             let arr = [];
 
-            if (this.event?.images == null) {return arr}
+            // return with console error if:
+            //   - images not found (database is incomplete or corrupted), or
+            //   - imgarray not specified (error in view component)
+            if (!this.haveImages) {
+              console.log("ImageDisplay: images not found or not specified.");
+              return arr;
+            }
 
             this.imgarray.forEach(e => {
                     let obj = {};
@@ -71,18 +91,6 @@ export default {
             });
 
             return arr;
-        },
-        // secondImage: function() {
-        //     return (this.imgarray.length == 2) ? true : false;
-        // },
-        haveImages: function() {
-            let havesome = false;
-
-            if (this.event && this.event.images) {
-              havesome = (this.event.images[0].length > 0) ? true : false;
-            }
-
-            return havesome;
         },
         singleImages() {
             return this.group == 'single';

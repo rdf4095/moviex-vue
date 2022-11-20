@@ -1,8 +1,8 @@
 <!--
   Display of one or more images, 
   stacked one above the other (default), or side by side.
-  Images are separated by margins.
-  Each image has its own caption.
+  No margins between images.
+  There is a single caption displayed the same height or width of images.
 -->
 <template>
   <div :class="[ 'image-block', classDiv ]">
@@ -13,7 +13,7 @@
     </figure>
 
     <div :class="[ 'block-caption', classDivCaption ]">
-      <slot name='myblock'></slot>
+      <template><slot name='block-content'></slot></template>
     </div>
 
   </div>  
@@ -21,10 +21,6 @@
 
 
 <script>
-/*
-  named slot shorthand:
-      <template #myname>any content to be passed</template>
-*/
 export default {
   props: {
       event: {type: Object},
@@ -85,6 +81,7 @@ div.image-block {
   position: relative;
 
   /* consider outline, same color as the caption background  */
+
   box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
   -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
@@ -114,11 +111,6 @@ div.bottombar {
   float: none;
   margin: 0 auto;
 }
-/* not well supported yet...  */
-/* div:has(img.x1wide) {
-  width: calc(var(--single-width-wide) + var(--single-sidebar) + 1.25em);
-} */
-
 
 figure.basic {
   margin: 0;
@@ -134,7 +126,7 @@ figure.basic {
 
 img {
   vertical-align: bottom;
-  background: #eee;
+  background: white;
 }
 .x1 {
   width: var(--single-width);

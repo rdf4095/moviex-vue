@@ -1,6 +1,7 @@
 <template>
   <article>
     <ShowTitleBlock :event=event></ShowTitleBlock>
+    <section>Story</section>
     <p>
       Sometimes when an evil person dies, they return as a soulless vampire...
       like Marco, who wishes to revive his dead wife Katrina, and convinces the girl's grieving mother
@@ -9,6 +10,7 @@
       her sister is now a vampire, she must rely on two protectors, a "man of action" called Victor de la Cruz, and the parish priest, who knows a great deal about vampires.
     </p>
     <ImageDisplay :event=event :imgarray="[1,2]"></ImageDisplay>
+    <section>Notes</section>
     <p>
       The horse-drawn hearse we see in the first scene implies that we are about to see a classical period horror story--but the 60's auto we soon see following along douses this expectation.  Not to worry though, the caped nobleman, weirdo hunchback and midget assistant soon appear.
       Most of the film is in full color, but in some of the night scenes you can actually see DeLeon and his cameraman changing color filters in the middle of  the scene.  There is an odd psychological effect to this, since color is an effect of light, and light is anathema to the vampire and his activities.  However, these filters depict part of the characters' experience within the story, since the padre says at one point, "there seems to be a red glow..."  The glow suffuses the final sequences, with multiple vampires about, and resolves back to full color only when the vampiric influence is ended.  The characters themselves come to realize that red is the color of the vampire (of course it is--the color of blood).  I suppose a red glow is acceptable for the vampire, even though it is a kind of light.   In the same way that a red light is allowed in a photographic darkroom without spoiling the film.  (Do vampires fear only full-spectrum light because it is like sunlight?)

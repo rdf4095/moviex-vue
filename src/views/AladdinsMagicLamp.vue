@@ -8,16 +8,8 @@
 	    Aladdin's mother hesitantly uses the genie to free her son, and Aladdin works some magical mischief to rejoin the princess.  They are about to have their wedding when the evil sage returns, determined to get the lamp for himself--which he does.  The sage magically substitutes himself for the sultan and the genie, ordered to kill Aladdin, cannot bring himself to harm his friend.  So, Aladdin gets him an alternate receptacle in which to live, and the genie is again empowered to help him.  The situation is set right, and Aladdin gets back with the princess.
     </p>
 
-    <!-- <ImageBlock :event=event :imgarray="[1,2]" :arrange="'stacked'">
-      <template v-slot:myblock>
-        {{ blockcaption }}
-      </template>
-    </ImageBlock> -->
-
-    <ImageDisplay :event=event :imgarray="[1,2]" :arrange="'stacked'">
-      <template v-slot:myblock>
-        {{ blockcaption }}
-      </template>
+    <ImageDisplay :event=event :imgarray="[1,2]" :group="'block'" :arrange="'stacked'">
+      <template #block-slot>{{ cap }}</template>
     </ImageDisplay>
 
     <section>Notes</section>
@@ -41,7 +33,7 @@ export default {
     data() {
         return {
             event: null,
-            blockcaption: 'This is the default slot text'
+            cap: 'This is the default slot text'
         }
     },
 
