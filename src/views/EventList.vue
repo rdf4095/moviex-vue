@@ -26,22 +26,22 @@ import EventService from '@/services/EventService.js';
 export default {
     name: "EventList",
 
-  data() {
-      return {
-          events: null
-      }
-  },
+    data() {
+        return {
+            events: null
+        }
+    },
 
-  created() {
-      EventService.getEvents()
-      .then(response => {
-          this.events = response.data;
-          // console.log(this.events);
-      })
-      .catch(error => {
-          console.log(error);
-      })
-  }
+    created() {
+        EventService.getEvents()
+        .then(response => {
+            this.events = response.data;
+            // console.log(this.events);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
 };
 </script>
 
@@ -50,7 +50,7 @@ export default {
 .events {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  /* align-items: left; */
 }
 h1 {
   padding-left: 0.25em;

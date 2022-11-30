@@ -34,11 +34,12 @@ export default {
   },
 
   mounted() {
-      console.log("in ImageSingle:");
-      console.log("    imagearr:",this.imagearr);
-      console.log("    classDiv:",this.classDiv);
-      console.log("    classFigure:",this.classFigure);
-      console.log("    classImage:",this.classImage);
+      // console.log("in ImageSingle:");
+
+      // console.log("    imagearr:",this.imagearr);
+      // console.log("    classDiv:",this.classDiv);
+      // console.log("    classFigure:",this.classFigure);
+      // console.log("    classImage:",this.classImage);
   }
 
 }

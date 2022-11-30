@@ -132,7 +132,13 @@ export default {
     //     return {
     //     }
     // },
-
+    mounted: function() {
+        var masthead = document.querySelector("div.mast");
+        // var toggleImageButton = masthead.querySelector("button");
+        var buttons = masthead.querySelectorAll("button");
+        // toggleImageButton.style.display = "block";
+        buttons.forEach(b => b.style.display = "block");
+    }
 }
 </script>
 

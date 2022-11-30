@@ -41,6 +41,7 @@ export default {
 }
 
 main {
+  /* consider: change grid settings to fit article and minimize list of links  */
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: auto;
@@ -61,6 +62,10 @@ main {
 .list-of-links {
   grid-area: links;
   background: lightgreen;
+  /* consider:  */
+  width: fit-content;
+  width: -webkit-fit-content;
+  padding: 0.5em;
 }
 footer {
   grid-area: footer;

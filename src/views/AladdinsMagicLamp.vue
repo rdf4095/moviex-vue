@@ -3,13 +3,14 @@
     <ShowTitleBlock :event=event></ShowTitleBlock>
     <section>Story</section>
     <p>
-      A sage arrives in the city of Bagdad, having been informed by an oracle in the stars that a young man named Aladdin is one he should seek.  The sage talks his way into the home of Aladdin and his mother, presenting himself as the brother of Aladdin's father, Ali Al Marouf.  He persuades Aladdin to help him retrieve a lamp which he desires, and the earnest young man finds it.  However, he becomes alarmed when the sage is ready to kill him to possess the lamp, so Aladdin keeps it.  He soon discovers the lamp contains a genie.
-	    The genie informs Aladdin that his uncle is no such thing, but an evil Maghribian sorcerer, so Aladdin has the genie banish him.  The young man introduces the genie to his mother, who cowers in fear, and he later suggests that the genie bring the princess Boudour to him, since he happened to meet her earlier and he's sure there was a spark between them.  Naturally, the Sultan's soldiers trail her and arrest Aladdin, and the Sultan arbitrarily chooses Mubarak as a husband for the unruly girl.
-	    Aladdin's mother hesitantly uses the genie to free her son, and Aladdin works some magical mischief to rejoin the princess.  They are about to have their wedding when the evil sage returns, determined to get the lamp for himself--which he does.  The sage magically substitutes himself for the sultan and the genie, ordered to kill Aladdin, cannot bring himself to harm his friend.  So, Aladdin gets him an alternate receptacle in which to live, and the genie is again empowered to help him.  The situation is set right, and Aladdin gets back with the princess.
+      A sage arrives in the city of Bagdad, having been informed by an oracle that a young man named Aladdin can obtain the lamp he seeks.Distrustful of the man, Aladdin keeps the lamp and soon discovers it contains a genie.
+	    The genie informs Aladdin that the sage is an evil sorcerer, so Aladdin has the genie banish him.  Then, having glimpsed the  princess Boudour, Aladdin contrives to meet her, and a mutual attraction develops. Naturally, the Sultan's soldiers arrest the low-born Aladdin, and his mother reluctantly uses the genie to free her son. The sage doesn't give up easily though, and when he gets the lamp in his hands, Aladdin has to use a trick to get the genie to help him set the situation right. In the end, he is reunited with the princess whom he loves.
     </p>
 
-    <ImageDisplay :event=event :imgarray="[1,2]" :group="'block'" :arrange="'stacked'">
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]" :group="'block'" :arrange="'stacked'">
       <template #block-slot>{{ cap }}</template>
+    </ImageDisplay> -->
+    <ImageDisplay :event=event :imgarray="[1,2]" :arrange="'stacked'">
     </ImageDisplay>
 
     <section>Notes</section>
@@ -33,7 +34,7 @@ export default {
     data() {
         return {
             event: null,
-            cap: 'This is the default slot text'
+            cap: 'This is the slot text from the view file.'
         }
     },
 

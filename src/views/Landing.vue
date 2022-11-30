@@ -9,10 +9,20 @@
 
 <script>
 export default {
+    mounted: function() {
+        var masthead = document.querySelector("div.mast");
+        var toggleImageButton = masthead.querySelector("button");
 
+        toggleImageButton.style.display = "none";
+
+        // window.removeEventListener();
+    }
 }
 </script>
 
 
 <style scoped>
+button {
+  display: none;
+}
 </style>

@@ -35,16 +35,25 @@ export default {
       getImgUrl(path) {
           var oneimage = require.context('../assets/images/');
 
-          return oneimage('./' + path)
+          // var im = oneimage('./' + path);
+          // console.log("im natural w,h:", im.naturalWidth, im.naturalHeight);
+          return oneimage('./' + path);
       }
   },
 
   mounted() {
-      console.log("in ImageBlock:");
+      // console.log("in ImageBlock:");
+
       // console.log("    imagearr:",this.imagearr);
       // console.log("    classDiv:",this.classDiv);
       // console.log("    classFigure:",this.classFigure);
       // console.log("    classImage:",this.classImage);
+
+      // var fig1 = document.querySelector("figure");
+      // var img1 = fig1.querySelector("img");
+      // console.log("when ImageBlock is mounted:");
+      // console.log("    img1 display w,h:", img1.width, img1.height);
+      // console.log("    img1 natural w,h:", img1.naturalWidth, img1.naturalHeight);
   }
 
 }
@@ -67,6 +76,7 @@ div.block-caption {
   width: var(--single-sidebar);
   height: 100%;
   margin: 0 0 0 0.25em;
+  overflow: auto;
 }
 .captionbottom {
   position: relative;
