@@ -3,6 +3,10 @@
   stacked one above the other (default), or side by side.
   Images are separated by margins.
   Each image has its own caption.
+
+  NOTE: Currently, image size adapts from single to single-wide, if the user
+  changes the browser window size. Should this be over-ridden if certain options
+  are specified in the view (e.g. sidebyside)?
 -->
 <template>
   <div :class="[ 'image-row', classDiv ]">
@@ -16,6 +20,17 @@
 
 
 <script>
+//        <img :src="getImgUrl( item.image )" :class="[ classImage ]">
+
+
+/*
+  TODO: if 'sidebyside' is set:
+    -- set img width to single
+    -- set containing div width to auto
+    this will not have the images change size with window width.
+    Can we use classFigure/classImage for this? If not, is classImage even needed?
+    (if we want to revert to user-specified img size, then yes)
+*/
 export default {
   props: {
       event: {type: Object},
@@ -49,11 +64,13 @@ export default {
 <style scoped>
 div.image-row {
   position: relative;
-  width: fit-content;
+  /* width: fit-content; */
+  /* width: var(--single-width-wide); */
+  width: var(--double-width);
 }
 .textright {
   float: left;
-  margin-right: 0.75em;
+  margin-right: 2.0em;
 }
 .textleft {
   float: right;
@@ -93,14 +110,26 @@ figcaption {
 img {
   vertical-align: bottom;
   background: white;
+  width: var(--double-width);
 }
 .x1 {
   width: var(--single-width);
 }
-.x1wide {
+/* .x1wide {
   width: var(--single-width-wide);
 }
 .x2 {
   width: var(--double-width);
+} */
+
+@media screen and (max-width: 1400px) {
+  div.image-row, img {
+    width: var(--single-width-wide);
+  }
+}
+@media screen and (max-width: 1000px) {
+  div.image-row, img {
+    width: var(--single-width);
+  }
 }
 </style>

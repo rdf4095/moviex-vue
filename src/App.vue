@@ -41,10 +41,8 @@ export default {
 }
 
 main {
-  /* consider: change grid settings to fit article and minimize list of links  */
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: auto;
+  grid-auto-flow: colummns;
   grid-gap: 0.5em;
   grid-template-areas: "header header"
                        "content links"
@@ -62,7 +60,6 @@ main {
 .list-of-links {
   grid-area: links;
   background: lightgreen;
-  /* consider:  */
   width: fit-content;
   width: -webkit-fit-content;
   padding: 0.5em;
@@ -73,7 +70,7 @@ footer {
 }
 
 article {
-    /* use consistent image sizes  */
+    /* for consistent image sizes  */
   --single-width: 320px;
   --single-width-wide: 480px;
   --double-width: calc(var(--single-width) * 2);

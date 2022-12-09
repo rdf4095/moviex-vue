@@ -3,6 +3,10 @@
   stacked one above the other (default), or side by side.
   No margins between images.
   There is a single caption displayed the same height or width of images.
+
+  NOTE: Currently, image size adapts from single to single-wide, if the user
+  changes the browser window size. In this case, the side-caption does not
+  re-position itself correctly. (div should change class)
 -->
 <template>
   <div :class="[ 'image-block', classDiv ]">
@@ -21,6 +25,10 @@
 
 
 <script>
+//      <img :src="getImgUrl( item.image )" :class="[ classImage ]">
+/*
+  see TODO in ImageSingle, about image size
+*/
 export default {
   props: {
       event: {type: Object},
@@ -35,8 +43,6 @@ export default {
       getImgUrl(path) {
           var oneimage = require.context('../assets/images/');
 
-          // var im = oneimage('./' + path);
-          // console.log("im natural w,h:", im.naturalWidth, im.naturalHeight);
           return oneimage('./' + path);
       }
   },
@@ -48,22 +54,24 @@ export default {
       // console.log("    classDiv:",this.classDiv);
       // console.log("    classFigure:",this.classFigure);
       // console.log("    classImage:",this.classImage);
-
-      // var fig1 = document.querySelector("figure");
-      // var img1 = fig1.querySelector("img");
-      // console.log("when ImageBlock is mounted:");
-      // console.log("    img1 display w,h:", img1.width, img1.height);
-      // console.log("    img1 natural w,h:", img1.naturalWidth, img1.naturalHeight);
   }
 
 }
+
+/*
+  consider: removing box shadow from the container div and 'height: 100%' from the 
+  caption div. This makes a cleaner 'block' appearance with less css.
+  Try this with longer caption to see how overflow works.
+  It would be convenient to leave this div set at 100px wide, since its width is
+  used to adjust the container div width when browser window changes.
+*/
 </script>
 
 
 <style scoped>
 div.block-caption {
   box-sizing: border-box;
-  background: yellow;
+  background: white;
   padding: 0.5em 0.25em;
   font-family: 'Times New Roman', serif;
   font-size: .85em;
@@ -89,14 +97,13 @@ div.block-caption {
 
 div.image-block {
   position: relative;
-
-  /* consider outline, same color as the caption background  */
+  width: calc(var(--double-width) + var(--single-sidebar) + 0.25em);
 
   box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
   -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.35);
 }
-.div_x1 {
+/* .div_x1 {
   width: calc(var(--single-width) + var(--single-sidebar) + 0.25em);
 }
 .div_x1wide {
@@ -104,7 +111,7 @@ div.image-block {
 }
 .div_x2 {
   width: calc(var(--double-width) + var(--single-sidebar) + 0.25em);
-}
+} */
 div.bottombar {
   /* width: var(--single-width); */
   width: fit-content;
@@ -137,14 +144,32 @@ figure.basic {
 img {
   vertical-align: bottom;
   background: white;
+  width: var(--double-width);
 }
 .x1 {
   width: var(--single-width);
 }
-.x1wide {
+/* .x1wide {
   width: var(--single-width-wide);
 }
 .x2 {
   width: var(--double-width);
+} */
+
+@media screen and (max-width: 1400px) {
+  div.image-block {
+    width: calc(var(--single-width-wide) + var(--single-sidebar) + 0.25em);
+  }
+  img {
+    width: var(--single-width-wide);
+  }
+}
+@media screen and (max-width: 1000px) {
+  div.image-block {
+    width: calc(var(--single-width) + var(--single-sidebar) + 0.25em);
+  }
+  img {
+    width: var(--single-width);
+  }
 }
 </style>

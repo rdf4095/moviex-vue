@@ -40,7 +40,7 @@ export default {
         },
         size: {
             type: String,
-            default: 'x1'          // 'x1wide', 'x2'
+            default: ''          // 'x1'
         },
         group: {
             type: String,
@@ -77,7 +77,7 @@ export default {
 
             // return with console error if:
             //   - images not found (database is incomplete or corrupted), or
-            //   - imgarray not specified (error in view component)
+            //   - imgarray not specified (error in writing the view component)
             if (!this.haveImages) {
               console.log("ImageDisplay: images not found or not specified.");
               return arr;
@@ -100,10 +100,10 @@ export default {
                 textright: (this.txt == 'right') ? true : false,
                 textleft: (this.txt == 'left') ? true: false,
                 centered: (this.txt == 'center') ? true: false,
-                bottombar: (this.arrange == 'sidebyside') ? true : false,
-                div_x1: (this.group == 'block' && this.size == 'x1') ? true : false,
-                div_x1wide: (this.group == 'block' && this.size == 'x1wide') ? true : false,
-                div_x2: (this.group == 'block' && this.size == 'x2') ? true : false
+                bottombar: (this.group == 'block' && this.arrange == 'sidebyside') ? true : false
+                // div_x1: (this.group == 'block' && this.size == '') ? true : false,
+                // div_x1wide: (this.group == 'block' && this.size == 'x1wide') ? true : false,
+                // div_x2: (this.group == 'block' && this.size == 'x2') ? true : false
             }
         },
         classDivCaption() {

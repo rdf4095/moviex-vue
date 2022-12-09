@@ -36,7 +36,6 @@ export default {
         EventService.getEvents()
         .then(response => {
             this.events = response.data;
-            // console.log(this.events);
         })
         .catch(error => {
             console.log(error);
@@ -50,7 +49,6 @@ export default {
 .events {
   display: flex;
   flex-direction: column;
-  /* align-items: left; */
 }
 h1 {
   padding-left: 0.25em;
@@ -58,6 +56,6 @@ h1 {
 }
 ul {
   list-style: none;
-  padding-left: 0.5em;
+  padding-left: 0.25em;
 }
 </style>
