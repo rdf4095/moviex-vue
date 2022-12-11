@@ -12,6 +12,7 @@
       <div class="list-of-links">
         <event-list></event-list>
       </div>
+      
       <footer>
         <router-view name='footer'></router-view>
       </footer>

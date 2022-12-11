@@ -77,6 +77,7 @@ export default {
 
             // return with console error if:
             //   - images not found (database is incomplete or corrupted), or
+            // TODO:
             //   - imgarray not specified (error in writing the view component)
             if (!this.haveImages) {
               console.log("ImageDisplay: images not found or not specified.");
@@ -101,9 +102,6 @@ export default {
                 textleft: (this.txt == 'left') ? true: false,
                 centered: (this.txt == 'center') ? true: false,
                 bottombar: (this.group == 'block' && this.arrange == 'sidebyside') ? true : false
-                // div_x1: (this.group == 'block' && this.size == '') ? true : false,
-                // div_x1wide: (this.group == 'block' && this.size == 'x1wide') ? true : false,
-                // div_x2: (this.group == 'block' && this.size == 'x2') ? true : false
             }
         },
         classDivCaption() {
@@ -114,7 +112,6 @@ export default {
         },
         classFigure() {
             return {
-                // basic: true,
                 sidebyside: (this.arrange == "sidebyside") ? true : false,
                 stacked: (this.arrange == "stacked") ? true : false
             }
@@ -128,10 +125,6 @@ export default {
         }
     },
 
-    // data() {
-    //     return {
-    //     }
-    // },
     mounted: function() {
         var masthead = document.querySelector("div.mast");
         // var toggleImageButton = masthead.querySelector("button");

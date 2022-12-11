@@ -13,6 +13,7 @@
 </template>
 
 <script>
+// possible future:
 // import EventBus from './services/event-bus.js';
 
 export default {
@@ -52,8 +53,6 @@ export default {
             }
         },
         checkKey(event) {
-            // console.log("in checkKey, event.which:",event.which);
-
             // 'I' = hide/display displayed images
             if (event.which == 73 && event.ctrlKey) {
                 this.toggleImages();
@@ -71,10 +70,6 @@ export default {
 </script>
 
 <style scoped>
-/* div.mast {
-    display: flex;
-    flex-direction: row;
-} */
 div {
     /* expand div to height of children when they are floated.  */
     overflow: hidden;
@@ -82,15 +77,11 @@ div {
 
 img {
     float: left;
-
-    /* width:auto;
-    height: fit-content; */
 }
 .options {
     position: absolute;
     top: 0;
     right: 0;
-    /* float: right; */
     padding: 0.25em;
     background-color: lightyellow;
 }

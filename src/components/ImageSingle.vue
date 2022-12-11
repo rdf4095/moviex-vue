@@ -4,9 +4,8 @@
   Images are separated by margins.
   Each image has its own caption.
 
-  NOTE: Currently, image size adapts from single to single-wide, if the user
-  changes the browser window size. Should this be over-ridden if certain options
-  are specified in the view (e.g. sidebyside)?
+  NOTE: Currently, image size adapts from single to single-wide to double, 
+  if the user changes the browser window size.
 -->
 <template>
   <div :class="[ 'image-row', classDiv ]">
@@ -20,9 +19,6 @@
 
 
 <script>
-//        <img :src="getImgUrl( item.image )" :class="[ classImage ]">
-
-
 /*
   TODO: if 'sidebyside' is set:
     -- set img width to single
@@ -49,7 +45,7 @@ export default {
   },
 
   mounted() {
-      // console.log("in ImageSingle:");
+      // console.log("ImageSingle mounted:");
 
       // console.log("    imagearr:",this.imagearr);
       // console.log("    classDiv:",this.classDiv);
@@ -64,8 +60,6 @@ export default {
 <style scoped>
 div.image-row {
   position: relative;
-  /* width: fit-content; */
-  /* width: var(--single-width-wide); */
   width: var(--double-width);
 }
 .textright {
@@ -115,12 +109,6 @@ img {
 .x1 {
   width: var(--single-width);
 }
-/* .x1wide {
-  width: var(--single-width-wide);
-}
-.x2 {
-  width: var(--double-width);
-} */
 
 @media screen and (max-width: 1400px) {
   div.image-row, img {

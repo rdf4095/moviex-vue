@@ -7,11 +7,39 @@
 	    The genie informs Aladdin that the sage is an evil sorcerer, so Aladdin has the genie banish him.  Then, having glimpsed the  princess Boudour, Aladdin contrives to meet her, and a mutual attraction develops. Naturally, the Sultan's soldiers arrest the low-born Aladdin, and his mother reluctantly uses the genie to free her son. The sage doesn't give up easily though, and when he gets the lamp in his hands, Aladdin has to use a trick to get the genie to help him set the situation right. In the end, he is reunited with the princess whom he loves.
     </p>
 
-    <!-- <ImageDisplay :event=event :imgarray="[1,2]"  :arrange="'sidebyside'" :txt="'left'">
-    </ImageDisplay> -->
-    <ImageDisplay :event=event :imgarray="[1,2]" :group="'block'">
+<!-- test options for image display  -->
+<!-- single sidebyside  -->
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]"  :arrange="'sidebyside'" :txt="'right'"></ImageDisplay> -->
+
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]"  :arrange="'sidebyside'" :txt="'left'"></ImageDisplay> -->
+
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]"  :arrange="'sidebyside'" :txt="'center'"></ImageDisplay> -->
+
+<!-- single stacked  -->
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]" :txt="'left'"></ImageDisplay> -->
+
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]" :txt="'right'"></ImageDisplay> -->
+
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]" :txt="'center'"></ImageDisplay> -->
+
+<!-- block sidebyside  -->
+    <ImageDisplay :event=event :imgarray="[1,2]" :group="'block'" :arrange="'sidebyside'" :txt="'left'"></ImageDisplay>
+
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]" :group="'block'" :arrange="'sidebyside'" :txt="'right'"></ImageDisplay> -->
+
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]" :group="'block'" :arrange="'sidebyside'" :txt="'center'"></ImageDisplay> -->
+
+<!-- block stacked  -->
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]" :group="'block'" :txt="'left'"></ImageDisplay> -->
+
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]" :group="'block'" :txt="'right'"></ImageDisplay> -->
+
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]" :group="'block'" :txt="'center'"></ImageDisplay> -->
+
+<!-- original display  -->
+    <!-- <ImageDisplay :event=event :imgarray="[1,2]" :group="'block'">
       <template #block-slot>{{ cap }}</template>
-    </ImageDisplay>
+    </ImageDisplay> -->
 
     <section>Notes</section>
     <p>
